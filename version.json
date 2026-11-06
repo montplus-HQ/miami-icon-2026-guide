@@ -1,6 +1,6 @@
 {
-  "version": "0.8.6",
+  "version": "0.8.7",
   "released": "2026-11-06",
-  "note": "Royal excursion family pricing updated; child free on booked SHOREX",
+  "note": "Plan B now uses selected day context, HARD constraints and day-specific fallback",
   "min_schema": 1
 }
