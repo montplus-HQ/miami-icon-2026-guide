@@ -1,16 +1,17 @@
-MIAMI + ICON 2026 — PWA v0.8.0
+MIAMI + ICON 2026 — PWA v0.8.2
 
 CO NOWE
-- Plan przebudowany na podstawie aktualnych ustaleń z 6 XI 2026.
-- Hotele nie są już hardkodowane: obecne rezerwacje są tylko zabezpieczeniem, a finalny wybór ma wynikać z ceny całkowitej + lokalizacji + transportu.
-- 10 XII: South Beach + Art Deco.
-- 11 XII: Little Havana + Vizcaya; Wynwood usunięty z baseline.
-- Costa Maya i Roatán: status COMPARE — lokalni operatorzy są benchmarkiem, ale przed bookingiem wymagane jest porównanie 1:1 z ceną Royal dla konkretnego rejsu.
-- Cozumel: nadal RESEARCH; preferowany kierunek to lokalny dzień + krótka plaża zamiast drogiego resort package.
-- CocoCay: included family day, domyślnie bez płatnych dodatków.
-- 19 XII: Frost Science jako główny blok po zejściu ze statku.
-- Miami transport: publiczny transport / walking jako baza, Uber Car Seat lub transfer z fotelikiem jako fallback.
-- Dodany pre-trip OPEN ITEMS: ESTA, finalny hotel i decyzje excursion.
+- Stan rezerwacji zsynchronizowany ze zrzutami Royal z 6 XI 2026.
+- Day 1: Headliner Showtime 19:15, 50 min — RESERVED.
+- Day 2: STARBURST 19:00, 50 min — RESERVED.
+- Costa Maya: Chacchoben Mayan Ruins 08:30, 4 h — Royal SHOREX RESERVED.
+- Roatán: Royal SHOREX 08:00, 3 h — RESERVED; pełna nazwa jest ucięta na zrzucie i nie została dopowiedziana.
+- Cozumel: Royal SHOREX 09:30, 5 h — RESERVED; pełna nazwa jest ucięta na zrzucie i nie została dopowiedziana.
+- Day 6: AQUA ACTION! 19:45, 1 h — RESERVED.
+- Dining: aplikacja pokazuje Early 5:00 PM oraz waitlistę Late (MY TIME); stare Late 19:30 nie jest traktowane jako aktualny stan.
+- Ceny shore excursions nie są widoczne na dostarczonych zrzutach — wymagają osobnego sprawdzenia w Cruise Plannerze.
+- Hotele pozostają TBD do porównania ceny all-in, lokalizacji i kosztu transportu.
+- Usunięto z publicznego planu osobiste imię dziecka.
 
 PUBLIKACJA
 Repo GitHub Pages:
@@ -29,5 +30,5 @@ Po commicie:
 
 WAŻNE
 - LIVE, Google Maps, Uber, Royal i pogoda celowo wymagają internetu.
-- Repo jest publiczne: nie umieszczaj numerów rezerwacji, danych paszportowych ani innych danych wrażliwych.
-- Status COMPARE / RESEARCH nie oznacza BOOKED.
+- Repo jest publiczne: nie umieszczaj nazwisk, numerów rezerwacji, numeru kabiny, danych paszportowych ani innych danych wrażliwych.
+- RESERVED oznacza potwierdzoną rezerwację; PRICE CHECK oznacza, że cena nie została potwierdzona z dostarczonych zrzutów.
