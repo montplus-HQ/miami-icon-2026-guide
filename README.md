@@ -2,7 +2,7 @@
 
 Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of the Seas**.
 
-**Current:** v0.8.6 — Royal excursion names/prices synchronized 2026-11-06.
+**Current:** v0.8.7 — Royal excursion names/prices synchronized 2026-11-06.
 
 - 🎭 Day 1: Headliner Showtime 19:15 — RESERVED.
 - ✨ Day 2: STARBURST 19:00, 50 min — RESERVED.
@@ -20,3 +20,7 @@ Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of 
 **Uwaga:** ceny z Cruise Planner są bieżącymi cenami ofertowymi, nie automatycznie kwotą faktycznie zapłaconą za istniejącą rezerwację.
 
 Repo jest publiczne — bez nazwisk, numerów rezerwacji, numeru kabiny, danych paszportowych i innych danych wrażliwych.
+
+## Plan B v0.8.7
+
+Plan B jest teraz zależny od wybranego dnia: synchronizuje się z Trybem Dzisiaj, pokazuje day-specific trigger, zachowuje HARD constraint i daje bezpośredni powrót do bazy / pełnego planu dnia.
