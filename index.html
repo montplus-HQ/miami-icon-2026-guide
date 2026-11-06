@@ -7,7 +7,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Miami + Icon 2026 — Mobile Guide v0.8.6</title>
+<title>Miami + Icon 2026 — Mobile Guide v0.8.7</title>
 <style>
 :root{--bg:#0b1220;--card:#121b2b;--card2:#182437;--text:#f4f7fb;--muted:#9fb0c8;--accent:#4da3ff;--green:#51d88a;--yellow:#ffd166;--red:#ff6b6b;--line:#26364d}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -32,6 +32,8 @@ details{background:#0f1928;border:1px solid var(--line);border-radius:14px;paddi
 .bottomin{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:7px} .nav{text-decoration:none;color:white;text-align:center;background:#142033;border-radius:12px;padding:9px 3px;font-size:12px;font-weight:800}
 #changedPanel{display:none} select{width:100%;background:#0e1725;color:white;border:1px solid #324761;border-radius:12px;padding:11px;font-size:15px;margin-top:6px}
 .result{background:#10261d;border:1px solid #1f6c45;border-radius:14px;padding:12px;margin-top:12px}
+.result h3{margin:0 0 6px}.result .planbline{margin-top:8px}.result .planbactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+@media(max-width:520px){.result .planbactions{grid-template-columns:1fr}}
 .alertbox{background:#221d10;border:1px solid #6f5a18;border-radius:16px;padding:13px;margin-top:10px}
 .alertbox.checked{background:#10261d;border-color:#1f6c45;opacity:.78}
 .alerthead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -95,7 +97,7 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
     <div class="kicker">MIAMI + ICON OF THE SEAS • 9–20 XII 2026</div>
     <h1>Mobile Guide</h1>
     <div class="muted">OFFLINE plan + szybkie linki LIVE. Bez mikrostopów, bez przeładowania.</div>
-    <div class="status">● WORKING PLAN V0.8.6 • CURRENT RESERVATIONS</div>
+    <div class="status">● WORKING PLAN V0.8.7 • CURRENT RESERVATIONS</div>
   </section>
 
 
@@ -160,6 +162,8 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
   <section class="card" id="changed">
     <button class="btn yellow full" onclick="toggleChanged()">🔄 PLAN SIĘ ZMIENIŁ</button>
     <div id="changedPanel">
+      <h3>Którego dnia dotyczy zmiana?</h3>
+      <select id="planbDay" class="dayselect" onchange="setPlanBDay(this.value)"></select>
       <h3>Jak wyglądamy?</h3>
       <select id="energy">
         <option value="good">🙂 dobra energia</option>
@@ -172,7 +176,7 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
         <option value="60">około 1 h</option>
         <option value="120">2 h lub więcej</option>
       </select>
-      <button class="btn green full" style="margin-top:12px" onclick="replan()">Najprostszy wariant</button>
+      <button class="btn green full" style="margin-top:12px" onclick="replan()">Pokaż Plan B dla tego dnia</button>
       <div id="result"></div>
     </div>
   </section>
@@ -456,12 +460,29 @@ function dayIndexByPhoneDate(){
   return trip.findIndex(x=>x.date===key);
 }
 function fillPreviewSelector(){
+  const options=trip.map((d,i)=>`<option value="${i}">${d.label} — ${d.title}</option>`).join('');
   const s=$('#previewDay');
-  s.innerHTML=trip.map((d,i)=>`<option value="${i}">${d.label} — ${d.title}</option>`).join('');
+  s.innerHTML=options;
+  const pb=$('#planbDay');
+  if(pb) pb.innerHTML=options;
 }
 function setPreviewDay(v){
   previewIndex=Number(v);
   renderTodayCompact(previewIndex);
+  const pb=$('#planbDay');
+  if(pb) pb.value=previewIndex;
+  const result=$('#result');
+  if(result) result.innerHTML='';
+}
+function setPlanBDay(v){
+  const idx=Number(v);
+  if(Number.isNaN(idx)||!trip[idx]) return;
+  previewIndex=idx;
+  const preview=$('#previewDay');
+  if(preview) preview.value=idx;
+  renderTodayCompact(idx);
+  const result=$('#result');
+  if(result) result.innerHTML='';
 }
 function renderTodayCompact(idx){
   const d=trip[idx];
@@ -515,15 +536,71 @@ function selectToday(){
   let idx=phoneIdx>=0 ? phoneIdx : 0;
   if(previewIndex!==null) idx=previewIndex;
   renderTodayCompact(idx);
+  const pb=$('#planbDay');
+  if(pb) pb.value=idx;
 }
-function toggleChanged(){const p=$('#changedPanel');p.style.display=p.style.display==='block'?'none':'block';}
+function toggleChanged(){
+  const p=$('#changedPanel');
+  p.style.display=p.style.display==='block'?'none':'block';
+  if(p.style.display==='block'){
+    const idx=previewIndex!==null ? previewIndex : Math.max(0,dayIndexByPhoneDate());
+    const pb=$('#planbDay');
+    if(pb) pb.value=idx;
+  }
+}
+function planBReturnHref(d,p){
+  if(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18') return 'https://www.royalcaribbean.com/booked';
+  return gmaps((p&&p.return)||(p&&p.anchor)||d.title,(p&&p.primary)==='transit'?'transit':'driving');
+}
+function buildReplan(d,p,e,t){
+  const foodB=d.food&&d.food[1] ? d.food[1][1] : (d.food&&d.food[0] ? d.food[0][1] : 'najprostsze dostępne jedzenie');
+  let title='Wersja skrócona';
+  let decision=d.planb;
+  let keep='Zachowujemy najważniejszy CORE: '+(d.core&&d.core[0] ? d.core[0] : d.now)+'.';
+  let drop='Nie dokładamy nic spoza planu.';
+
+  if(e==='low'){
+    title='Kończymy aktywną część dnia';
+    keep='Nie dokładamy kolejnych atrakcji. Jedzenie: '+foodB+'. Potem baza / statek.';
+    drop='Wszystko opcjonalne znika. HARD pozostaje widoczny poniżej i wymaga osobnej decyzji, jeśli miałby być zmieniony.';
+  }else if(t<=30){
+    title='Mamy tylko 30 minut';
+    keep='Robimy wyłącznie najbliższy prosty krok albo wracamy do bazy. Jedzenie: '+foodB+'.';
+    drop='Nie rozpoczynamy nowego klastra, długiego przejazdu ani dodatkowej atrakcji.';
+  }else if(e==='mid' || t<=60){
+    title='Zostaje jeden prosty blok';
+    keep='Zachowujemy jeden najważniejszy element: '+(d.core&&d.core[0] ? d.core[0] : d.now)+'. Potem '+foodB+' i powrót.';
+    drop='Drugi klaster / bonus / dokładanie nowych punktów odpada.';
+  }else if(e==='good' && t>=120){
+    title='Plan bazowy nadal działa';
+    decision='Następnie: '+d.next;
+    keep='Zostaje obecny plan. Nie dokładamy nowej dzielnicy ani dodatkowej wycieczki.';
+    drop='Plan B nie jest potrzebny, dopóki nie zmieni się energia, czas albo warunki LIVE.';
+  }
+
+  return {title,decision,keep,drop};
+}
 function replan(){
-  const e=$('#energy').value,t=Number($('#timeleft').value);
-  let text='Skróć o jeden moduł i zachowaj CORE.';
-  if(e==='low') text='Kończymy aktywną część dnia: najprostsze jedzenie / transport / hotel lub statek. BONUS znika pierwszy.';
-  else if(e==='mid' && t<=60) text='Zostaw tylko jeden ostatni punkt + jedzenie A/B. Potem powrót.';
-  else if(e==='good' && t>=120) text='Plan bazowy zostaje. Nie dokładamy nowej dzielnicy ani dodatkowej wycieczki.';
-  $('#result').innerHTML='<div class="result"><b>Rekomendacja</b><br>'+text+'</div>';
+  const idx=Number($('#planbDay').value);
+  const d=trip[idx];
+  if(!d) return;
+  const p=routeProfiles[d.date]||{};
+  const e=$('#energy').value;
+  const t=Number($('#timeleft').value);
+  const r=buildReplan(d,p,e,t);
+  const returnHref=planBReturnHref(d,p);
+  $('#result').innerHTML=`<div class="result">
+    <div class="kicker">PLAN B • ${d.label}</div>
+    <h3>${r.title}</h3>
+    <div class="planbline"><b>Decyzja:</b> ${r.decision}</div>
+    <div class="planbline"><b>Zostaje:</b> ${r.keep}</div>
+    <div class="planbline"><b>Odpuszczamy:</b> ${r.drop}</div>
+    <div class="planbline"><b>HARD / nie zgubić:</b> ${d.hard}</div>
+    <div class="planbactions">
+      <a class="btn" href="${returnHref}">↩ Powrót / baza</a>
+      <a class="btn green" href="#day${idx}">Pełny plan dnia</a>
+    </div>
+  </div>`;
 }
 render(); selectToday();
 
@@ -570,7 +647,7 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || location.hos
 window.addEventListener('online',checkGuideVersion);
 
 
-const APP_VERSION='0.8.6';
+const APP_VERSION='0.8.7';
 let swRegistration=null;
 
 function versionParts(v){return String(v).split('.').map(x=>parseInt(x,10)||0);}
