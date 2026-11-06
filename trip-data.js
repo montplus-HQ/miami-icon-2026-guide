@@ -5,21 +5,22 @@ export const trip=[
     "label": "9 XII • środa",
     "title": "Przylot do Miami",
     "theme": "Podróż + regeneracja",
-    "status": "READY • HOTEL TBD",
-    "hard": "Lot ląduje 17:35 • hotel pozostaje TBD do końcowego porównania",
-    "now": "MIA → hotel (wybór końcowy później)",
-    "next": "Kolacja tylko jeśli macie siłę",
+    "status": "READY • HOTEL APPROVED",
+    "hard": "Lot ląduje 17:35 • baza: Courtyard Miami Downtown/Brickell Area",
+    "now": "MIA → Courtyard Miami Downtown/Brickell Area",
+    "next": "Check-in → lekka kolacja blisko hotelu → sen",
     "core": [
       "Immigration + bagaż",
       "MIA Mover → Metrorail / transport publiczny jako baza",
-      "Uber Car Seat tylko gdy jest dostępny i realnie upraszcza przejazd"
+      "Check-in: Courtyard Miami Downtown/Brickell Area",
+      "Bez zwiedzania po locie"
     ],
     "food": [
       [
         "A",
-        "Kolacja blisko wybranego hotelu",
-        "bez dodatkowego przejazdu po długim locie",
-        "Downtown Miami, FL"
+        "Lekka kolacja przy hotelu",
+        "mała lokalna restauracja, bez dodatkowego przejazdu",
+        "Meraki Greek Bistro, 190 SE 1st Ave, Miami, FL 33131"
       ],
       [
         "B",
@@ -49,25 +50,27 @@ export const trip=[
     "theme": "Klasyczne Miami w spokojnym tempie",
     "status": "READY",
     "hard": "Kończymy aktywną część dnia około 16:30–17:00",
-    "now": "Hotel → South Pointe / South Beach",
-    "next": "Plaża → Lummus → Ocean Drive",
+    "now": "Courtyard → South Pointe / South Beach",
+    "next": "South Pointe → plaża → Ocean Drive / Art Deco → lunch",
     "core": [
+      "Śniadanie w The Bistro w Courtyard",
       "South Pointe Park",
       "Plaża i promenada",
-      "Lummus Park + Ocean Drive / Art Deco"
+      "Art Deco: Ocean Drive 5th–15th Street",
+      "Powrót do Courtyard około 16:30–17:00"
     ],
     "food": [
       [
         "A",
-        "Puerto Sagua",
-        "klasyczny kubański diner",
-        "700 Collins Ave, Miami Beach, FL"
+        "La Sandwicherie South Beach",
+        "oryginalny lokal od 1988; proste kanapki i smoothies",
+        "La Sandwicherie South Beach, 229 14th St, Miami Beach, FL 33139"
       ],
       [
         "B",
-        "Lokalny fallback na South Beach",
-        "wybieramy blisko aktualnej trasy, bez specjalnego dojazdu",
-        "South Beach, Miami Beach, FL"
+        "Puerto Sagua",
+        "klasyczny kubański diner, dobry na prosty rodzinny lunch",
+        "Puerto Sagua Restaurant, 700 Collins Ave, Miami Beach, FL 33139"
       ]
     ],
     "live": [
@@ -97,25 +100,27 @@ export const trip=[
     "theme": "Lokalne Miami + ogrody",
     "status": "READY",
     "hard": "Maksymalnie 2 klastry • powrót do hotelu około 16:00",
-    "now": "Hotel → Calle Ocho",
-    "next": "Lunch → Vizcaya → powrót",
+    "now": "Courtyard → Little Havana",
+    "next": "Domino Park / Calle Ocho → lunch → Vizcaya",
     "core": [
+      "Śniadanie w The Bistro w Courtyard",
       "Domino Park + Calle Ocho",
-      "Lokalny lunch",
-      "Vizcaya Museum & Gardens"
+      "Lunch kubański",
+      "Vizcaya jako drugi klaster tylko przy dobrej energii",
+      "Powrót do Courtyard i spokojne pakowanie"
     ],
     "food": [
       [
         "A",
         "Sanguich",
-        "kubańskie kanapki / szybki lunch",
-        "2057 SW 8th St, Miami, FL"
+        "rodzinny, nowoczesny Cubano / croquetas / batidos",
+        "Sanguich, 2057 SW 8th St, Miami, FL 33135"
       ],
       [
         "B",
         "El Rey De Las Fritas",
-        "frita / klasyczne lokalne jedzenie",
-        "1821 SW 8th St, Miami, FL"
+        "klasyczna frita cubana; szybciej i bardziej old-school",
+        "El Rey De Las Fritas, 1821 SW 8th St, Miami, FL 33135"
       ]
     ],
     "live": [
@@ -143,14 +148,15 @@ export const trip=[
     "title": "Icon of the Seas — embarkation",
     "theme": "Wejście na statek + sail away + wieczorny show",
     "status": "HARD",
-    "hard": "Odpłynięcie 16:30 • Headliner Showtime 19:15 RESERVED • terminal i arrival slot sprawdzamy LIVE",
-    "now": "Hotel → PortMiami",
-    "next": "Muster → lunch → sail away → 19:15 Headliner Showtime",
+    "hard": "Odpłynięcie 16:30 • Headliner Showtime 19:15 RESERVED • start z Courtyard",
+    "now": "Courtyard → PortMiami",
+    "next": "Muster → lunch → sail away → Headliner Showtime 19:15",
     "core": [
-      "Spokojne śniadanie + checkout",
-      "Uber Car Seat / wcześniej uzgodniony transfer do portu",
+      "Śniadanie w The Bistro w Courtyard",
+      "Checkout + bagaż",
+      "Transfer Courtyard → PortMiami",
       "Muster + kabina + lunch",
-      "19:15 Headliner Showtime — Royal Theater, Deck 4 Forward • 50 min • rezerwacja potwierdzona"
+      "19:15 Headliner Showtime — Royal Theater, Deck 4 Forward • 50 min"
     ],
     "food": [
       [
@@ -426,29 +432,30 @@ export const trip=[
   {
     "date": "2026-12-19",
     "label": "19 XII • sobota",
-    "title": "Miami po rejsie — Frost Science",
+    "title": "Miami po rejsie — YOTELPAD + Frost Science",
     "theme": "Lekki dzień po zejściu ze statku",
-    "status": "READY • HOTEL TBD",
-    "hard": "Statek przypływa około 06:00 • najpierw bagaże i luggage drop",
-    "now": "PortMiami → zostawienie bagażu → Frost Science",
-    "next": "Odpoczynek + wczesna kolacja",
+    "status": "READY • HOTEL APPROVED",
+    "hard": "Icon przypływa 06:00 • baza: YOTELPAD Miami • Frost jest głównym blokiem dnia",
+    "now": "PortMiami → YOTELPAD (luggage drop) → Frost Science",
+    "next": "Frost → YOTELPAD / odpoczynek → lokalna kolacja",
     "core": [
-      "Zostawić bagaże w finalnie wybranym hotelu",
-      "Frost Science około 10:00–14:00",
-      "Wczesna kolacja i spokojny wieczór"
+      "Luggage drop w YOTELPAD",
+      "Frost Science: akwarium + 1 planetarium",
+      "Po muzeum check-in / reset",
+      "Wieczorem lokalna kolacja blisko YOTELPAD"
     ],
     "food": [
       [
         "A",
-        "La Camaronera",
-        "seafood, jeśli transport jest wygodny",
-        "1952 W Flagler St, Miami, FL"
+        "Bali Cafe",
+        "mały lokalny indonezyjski adres blisko YOTELPAD",
+        "Bali Cafe, 109 NE 2nd Ave, Miami, FL 33132"
       ],
       [
         "B",
-        "Garcia's Seafood Grille & Fish Market",
-        "alternatywa nad rzeką",
-        "398 NW North River Dr, Miami, FL"
+        "Urban Pizza Cafe",
+        "prosty rodzinny fallback kilka minut od hotelu",
+        "Urban Pizza Cafe, 236 NE 3rd St, Miami, FL 33132"
       ]
     ],
     "live": [
@@ -471,26 +478,28 @@ export const trip=[
     "title": "Downtown / Brickell + wylot",
     "theme": "Bardzo lekki ostatni dzień",
     "status": "HARD",
-    "hard": "Lot MIA 19:35 • cel: być na lotnisku około 16:00",
-    "now": "Lekki spacer / Metromover zależnie od hotelu",
-    "next": "MIA bez pośpiechu",
+    "hard": "Lot 19:35 • cel MIA około 16:00 • baza do wyjazdu: YOTELPAD",
+    "now": "Śniadanie Vela → checkout → Downtown / Brickell",
+    "next": "Krótki spacer / celowane zakupy → lunch → bagaże → MIA",
     "core": [
-      "Bagaże zostają w hotelu do wyjazdu",
-      "Metromover / Bayfront / Brickell — tylko blisko i łatwo",
-      "Wyjazd w stronę MIA około 15:30–16:00"
+      "Śniadanie w Vela w YOTELPAD",
+      "Checkout + luggage hold",
+      "Bayfront / Downtown albo Brickell City Centre — tylko jeden klaster",
+      "Powrót po bagaże",
+      "Wyjazd na MIA około 15:30–16:00"
     ],
     "food": [
       [
         "A",
-        "Lunch blisko hotelu",
-        "bez specjalnego dojazdu",
-        "Downtown Miami, FL"
+        "Bali Cafe",
+        "lokalny lunch blisko hotelu przed wyjazdem",
+        "Bali Cafe, 109 NE 2nd Ave, Miami, FL 33132"
       ],
       [
         "B",
-        "Lekki posiłek przed lotniskiem",
-        "jeśli dzień idzie wolniej",
-        "Downtown Miami, FL"
+        "Meraki Greek Bistro",
+        "rodzinny lunch w Downtown, jeśli jesteśmy po stronie Courtyard",
+        "Meraki Greek Bistro, 190 SE 1st Ave, Miami, FL 33131"
       ]
     ],
     "live": [
@@ -656,33 +665,34 @@ export const decisionAlerts={
 
 export const routeProfiles={
   "2026-12-09": {
-    "anchor": "Government Center, Miami, FL",
+    "anchor": "Courtyard by Marriott Miami Downtown/Brickell Area, 200 SE 2nd Ave, Miami, FL 33131",
     "primary": "transit",
-    "primary_label": "🚇 Downtown hub",
-    "return": "Downtown Miami, FL",
+    "primary_label": "🏨 Courtyard",
+    "return": "Courtyard by Marriott Miami Downtown/Brickell Area, 200 SE 2nd Ave, Miami, FL 33131",
     "offline": [
-      "Finalna trasa zależy od wybranego hotelu — nie hardkodujemy dziś adresu.",
-      "Baseline z MIA: baggage claim → MIA Mover → Miami Intermodal Center.",
-      "Dalej Metrorail / Metromover / spacer wybieramy po finalnej lokalizacji hotelu.",
-      "Uber Car Seat jest fallbackiem, nie gwarantowanym środkiem podstawowym."
+      "MIA → MIA Mover → Miami Intermodal Center.",
+      "Dalej Metrorail / Downtown zgodnie z LIVE; Courtyard jest bazą 9–12 XII.",
+      "Po check-inie nie dokładamy zwiedzania.",
+      "Jeśli publiczny transport wygląda słabo lub podróż się przeciąga: Uber Car Seat."
     ],
     "pills": [
-      "HOTEL TBD",
-      "MIA MOVER",
+      "COURTYARD APPROVED",
       "PUBLIC TRANSIT",
-      "CAR SEAT FALLBACK"
+      "LIGHT DINNER",
+      "REST"
     ]
   },
   "2026-12-10": {
     "anchor": "South Pointe Park, 1 Washington Ave, Miami Beach, FL 33139",
     "primary": "transit",
     "primary_label": "🏖 South Pointe",
-    "return": "Downtown Miami, FL",
+    "return": "Courtyard by Marriott Miami Downtown/Brickell Area, 200 SE 2nd Ave, Miami, FL 33131",
     "offline": [
-      "Jedziemy na South Beach transportem publicznym; LIVE decyduje o konkretnej linii.",
-      "Dzień prowadzimy liniowo: South Pointe → plaża → Lummus → Ocean Drive.",
-      "Miami Beach trolley jest darmowym lokalnym connector'em, jeśli pasuje do trasy.",
-      "Jeśli energia spada, skracamy spacer zamiast dodawać kolejną dzielnicę."
+      "Śniadanie w hotelu przed wyjściem.",
+      "Courtyard → South Beach transportem publicznym; konkretną linię wybieramy LIVE.",
+      "Na South Beach prowadzimy dzień liniowo: South Pointe → plaża → Ocean Drive / Art Deco.",
+      "Free South Beach Trolley działa 8:00–23:00; traktujemy go jako lokalny connector.",
+      "Powrót do Courtyard około 16:30–17:00 zamiast dokładania nowej dzielnicy."
     ],
     "pills": [
       "SOUTH BEACH",
@@ -695,12 +705,12 @@ export const routeProfiles={
     "anchor": "Domino Park, 1444 SW 8th St, Miami, FL 33135",
     "primary": "transit",
     "primary_label": "🇨🇺 Calle Ocho",
-    "return": "Downtown Miami, FL",
+    "return": "Courtyard by Marriott Miami Downtown/Brickell Area, 200 SE 2nd Ave, Miami, FL 33131",
     "offline": [
-      "Pierwszy klaster: Domino Park / Calle Ocho + lokalny lunch.",
-      "Drugi klaster: Vizcaya tylko jeśli energia i transport nadal działają.",
-      "Sanguich / El Rey są kandydatami na lunch — wybieramy wg kolejki i wygody.",
-      "Wynwood nie jest częścią baseline tego dnia."
+      "Śniadanie w Courtyard.",
+      "Little Havana: korzystamy z transit/trolley zgodnie z LIVE; Domino Park i Calle Ocho są CORE.",
+      "Po lunchu Vizcaya jest drugim klastrem tylko przy dobrej energii.",
+      "Vizcaya jest przy Metrorail; wracamy do Courtyard na spokojne pakowanie."
     ],
     "pills": [
       "CALLE OCHO",
@@ -715,11 +725,11 @@ export const routeProfiles={
     "primary_label": "⚓ PortMiami",
     "return": "PortMiami, Miami, FL",
     "offline": [
-      "Rano tylko śniadanie, packing i checkout.",
-      "Najpierw w Royal sprawdź arrival slot i terminal.",
-      "Dopiero potem zamów Uber Car Seat / transfer.",
+      "Rano śniadanie w Courtyard, packing i checkout.",
+      "Przed wyjazdem sprawdź Royal App: terminal i arrival slot.",
+      "Dopiero potem wybierz Uber Car Seat / wcześniej uzgodniony transfer do PortMiami.",
       "DAY-1 BAG zostaje z Wami.",
-      "Wieczorem: Headliner Showtime 19:15, Royal Theater — Deck 4 Forward. Rezerwacja potwierdzona; show trwa 50 min. Przyjdźcie wcześniej — drzwi otwierają się 45 min przed show."
+      "Wieczorem: Headliner Showtime 19:15, Royal Theater — Deck 4 Forward."
     ],
     "pills": [
       "ROYAL APP",
@@ -837,39 +847,260 @@ export const routeProfiles={
     ]
   },
   "2026-12-19": {
-    "anchor": "Phillip and Patricia Frost Museum of Science, 1101 Biscayne Blvd, Miami, FL",
+    "anchor": "Phillip and Patricia Frost Museum of Science, 1101 Biscayne Blvd, Miami, FL 33132",
     "primary": "transit",
     "primary_label": "🔬 Frost Science",
-    "return": "Downtown Miami, FL",
+    "return": "YOTELPAD Miami, 227 NE 2nd St, Miami, FL 33132",
     "offline": [
-      "Po zejściu ze statku najpierw bagaże i luggage drop w finalnym hotelu.",
-      "Frost Science jest głównym blokiem dnia.",
-      "Po muzeum odpoczynek, nie kolejna duża dzielnica.",
-      "Kolację dobieramy pod finalny hotel i wygodny transport."
+      "PortMiami → YOTELPAD: najpierw luggage drop.",
+      "YOTELPAD jest bazą 19–20 XII; Frost jest głównym blokiem dnia.",
+      "Frost: dziecko 3 lata ma bezpłatne wejście według aktualnej polityki; planetarium rezerwujemy onsite.",
+      "Po muzeum wracamy do YOTELPAD na check-in / reset.",
+      "Wieczorem nie dokładamy dalekiej dzielnicy."
     ],
     "pills": [
-      "HOTEL TBD",
+      "YOTELPAD APPROVED",
       "LUGGAGE DROP",
       "FROST",
       "REST"
     ]
   },
   "2026-12-20": {
-    "anchor": "Miami International Airport, Miami, FL",
+    "anchor": "Brickell City Centre, 701 S Miami Ave, Miami, FL 33131",
     "primary": "transit",
-    "primary_label": "✈️ MIA",
+    "primary_label": "🛍 Brickell / Downtown",
     "return": "Miami International Airport, Miami, FL",
     "offline": [
-      "Ostatni dzień utrzymujemy lokalnie wokół finalnego hotelu / Downtown / Brickell.",
-      "Cel MIA około 16:00 na lot 19:35.",
-      "Transit backup w niedzielę: Government Center → Green Line northbound w kierunku Palmetto → Earlington Heights.",
-      "Na Earlington Heights przesiadka na Orange Line Airport Shuttle do MIA. Jeśli LIVE wygląda słabo: Uber Car Seat."
+      "Śniadanie w Vela, checkout i luggage hold w YOTELPAD.",
+      "Wybieramy jeden lekki klaster: Bayfront/Bayside albo Brickell City Centre.",
+      "Brickell City Centre 20 XII ma opublikowane holiday hours 10:00–20:00; limit zakupów 60–90 min.",
+      "Wracamy po bagaże i celujemy w wyjazd na MIA około 15:30–16:00.",
+      "Transit backup: Government Center → Green Line northbound w kierunku Palmetto → Earlington Heights → Orange Line Airport Shuttle."
     ],
     "pills": [
-      "LIGHT DAY",
-      "MIA 16:00",
-      "NORTHBOUND PALMETTO",
-      "CAR SEAT FALLBACK"
+      "YOTELPAD",
+      "ONE CLUSTER",
+      "SHOP SMART",
+      "MIA ~16:00"
+    ]
+  }
+};
+
+export const hotels={
+  "courtyard": {
+    "name": "Courtyard by Marriott Miami Downtown/Brickell Area",
+    "short": "Courtyard",
+    "stay": "9–12 XII",
+    "status": "APPROVED • REFUNDABLE",
+    "address": "200 SE 2nd Ave, Miami, FL 33131",
+    "breakfast": "The Bistro • 6:30–11:00",
+    "transit": "Downtown; Metrorail Government Center i Metromover w zasięgu spaceru",
+    "strategy": "Baza pod South Beach, Little Havana/Vizcaya i PortMiami. Nie zmieniamy bez wyraźnie lepszej oferty."
+  },
+  "yotelpad": {
+    "name": "YOTELPAD Miami",
+    "short": "YOTELPAD",
+    "stay": "19–20 XII",
+    "status": "APPROVED • REFUNDABLE",
+    "address": "227 NE 2nd St, Miami, FL 33132",
+    "breakfast": "Vela • 7:00–11:00",
+    "transit": "First Street / Downtown Metromover; Bayside 5 min pieszo według hotelu",
+    "strategy": "Baza pod Frost, Downtown, Bayfront i ostatni dzień bez samochodu."
+  }
+};
+
+export const guideExtras={
+  "2026-12-09": {
+    "hotel": "courtyard",
+    "intro": "Dzień odzyskiwania energii, nie dzień atrakcji. Courtyard daje nam szybki start następnego ranka i nie wymaga przenoszenia bazy.",
+    "trivia": [
+      "Vizcaya ma tego wieczoru potwierdzone Vizcaya Late 18:30–21:30, ale świadomie go odrzucamy: lądowanie 17:35 + immigration to zbyt duże ryzyko pośpiechu."
+    ],
+    "events": [
+      "Vizcaya Late: Holiday Evening — 9 XII 18:30–21:30 • ciekawa opcja na inną podróż, nie do naszego baseline."
+    ],
+    "tips": [
+      "Po przylocie kupujemy tylko wodę / drobiazgi potrzebne na rano. Nie robimy pierwszych dużych zakupów wieczorem."
+    ],
+    "shopping": [],
+    "sources": [
+      [
+        "Courtyard official",
+        "https://www.marriott.com/en-us/hotels/miadt-courtyard-miami-downtown-brickell-area/overview/"
+      ],
+      [
+        "Vizcaya Late",
+        "https://www.miamiandbeaches.com/event/vizcaya-late-holiday-evening/42930"
+      ]
+    ]
+  },
+  "2026-12-10": {
+    "hotel": "courtyard",
+    "intro": "South Beach robimy liniowo, bez powrotów: South Pointe → plaża → Ocean Drive / Art Deco → lunch → powrót.",
+    "trivia": [
+      "Po huraganie z 1926 r. Miami Beach odbudowywało się w latach 30., a Art Deco i Streamline Moderne stały się znakiem rozpoznawczym dzielnicy.",
+      "Najbardziej klasyczny odcinek Art Deco to Ocean Drive mniej więcej między 5th i 15th Street."
+    ],
+    "events": [
+      "Nutcracker Magic — 10 XII 16:00, Adrienne Arsht Center. Tylko jako ZAMIANA końcówki South Beach, nigdy dokładka do dnia."
+    ],
+    "tips": [
+      "South Beach Trolley: bezpłatny, 8:00–23:00, średnio około 20 min. Używamy go do skracania nóg, nie jako celu samego w sobie.",
+      "Na lunch A: La Sandwicherie — oryginalny counter z 1988 r.; B: Puerto Sagua — klasyczny kubański diner."
+    ],
+    "shopping": [
+      "Lincoln Road tylko jeśli potrzebujemy konkretnego sklepu. Nie zamieniamy dnia plażowego w shopping day."
+    ],
+    "sources": [
+      [
+        "Miami Beach Art Deco",
+        "https://www.miamibeachfl.gov/architecture/art-deco/"
+      ],
+      [
+        "South Beach Trolley",
+        "https://www.miamibeachfl.gov/city-hall/transportation/trolley/south-beach-trolley/"
+      ],
+      [
+        "Nutcracker Magic",
+        "https://www.miamicityballet.org/tickets-and-events/special-events/nutcracker-magic/"
+      ]
+    ]
+  },
+  "2026-12-11": {
+    "hotel": "courtyard",
+    "intro": "Najbardziej lokalny dzień Miami: Little Havana rano, jedzenie kubańskie, a Vizcaya tylko jako drugi spokojny klaster.",
+    "trivia": [
+      "El Rey de las Fritas działa od 1976 r.; frita cubana to kubański burger z chrupiącymi ziemniaczanymi słomkami.",
+      "Vizcaya została otwarta jako prywatna rezydencja w Boże Narodzenie 1916 r."
+    ],
+    "events": [
+      "George Balanchine’s The Nutcracker zaczyna sezon 11 XII, ale organizator rekomenduje spektakl od 4 lat — dlatego nie jest naszym baseline.",
+      "Zoo Lights działa 11 XII 18:30–22:00, ale Zoo Miami jest daleko na południu; odrzucamy jako zbyt duży dodatkowy transfer."
+    ],
+    "tips": [
+      "Little Havana Trolley łączy rejon z Brickell; dokładny przebieg sprawdzamy LIVE.",
+      "Vizcaya jest otwarta 9:30–16:30 i zamknięta we wtorki. Jeśli po lunchu energia spada, wracamy do Courtyard."
+    ],
+    "shopping": [
+      "Jeśli potrzebujemy normalnych zakupów przed rejsem, krótki Brickell City Centre po powrocie ma sens tylko z gotową listą; 60–90 min max."
+    ],
+    "sources": [
+      [
+        "Miami Trolley routes",
+        "https://www.miami.gov/Transportation-Roadways/Trolley-Information/Trolley-Maps-Routes"
+      ],
+      [
+        "Vizcaya",
+        "https://vizcaya.org/"
+      ],
+      [
+        "Miami City Ballet Nutcracker",
+        "https://www.miamicityballet.org/tickets-and-events/202627-season/nutcracker/"
+      ],
+      [
+        "Zoo Lights",
+        "https://www.zoomiami.org/zoo-lights"
+      ]
+    ]
+  },
+  "2026-12-12": {
+    "hotel": "courtyard",
+    "intro": "Dzień logistyczny. Hotel jest po to, żeby wejście na statek było spokojne; nie próbujemy już zwiedzać Miami.",
+    "trivia": [
+      "Coral Way Trolley obsługuje PortMiami, ale w dzień embarkation nie opieramy HARD transferu na jednym miejskim połączeniu."
+    ],
+    "events": [],
+    "tips": [
+      "Terminal i arrival slot sprawdzamy w Royal App tuż przed wyjazdem. Płatny transfer z fotelikiem wygrywa, jeśli oszczędza stres i przesiadki."
+    ],
+    "shopping": [
+      "Ostatnie zakupy tylko brakujące rzeczy z krótkiej listy. Żadnego mall detour."
+    ],
+    "sources": [
+      [
+        "Miami Trolley routes",
+        "https://www.miami.gov/Transportation-Roadways/Trolley-Information/Trolley-Maps-Routes"
+      ],
+      [
+        "PortMiami",
+        "https://www.miamidade.gov/portmiami/"
+      ]
+    ]
+  },
+  "2026-12-19": {
+    "hotel": "yotelpad",
+    "intro": "Po tygodniu rejsu wybieramy jedno miejsce o wysokiej wartości rodzinnej: Frost Science. Hotel leży w Downtown, więc reszta dnia może być pieszo/Metromoverem.",
+    "trivia": [
+      "Frost Explorer Ticket obejmuje ekspozycje, akwarium i jeden pokaz planetarium; dzieci 3 lata i młodsze są obecnie bezpłatne.",
+      "YOTEL podaje Bayside około 5 min pieszo, a Frost około 0.9 mili."
+    ],
+    "events": [
+      "Frost „Just for Me: Snowy Holiday” 10:00–11:30 — program sensory-friendly dla rodzin o zróżnicowanych potrzebach; korzystamy tylko jeśli to dla Was relevant.",
+      "Frost Laser Evening od 19:00 — opcjonalny bonus po odpoczynku; nie jest częścią baseline."
+    ],
+    "tips": [
+      "Bilety Frost warto kupić z wyprzedzeniem; planetarium wybiera się na miejscu i miejsca są first-come-first-served.",
+      "Po Frost wracamy do YOTELPAD. Kolacja blisko hotelu: Bali Cafe albo prosty Urban Pizza."
+    ],
+    "shopping": [
+      "Bayside jest dobre na szybki spacer i pamiątki, ale nie traktujemy go jako miejsca na duże zakupy."
+    ],
+    "sources": [
+      [
+        "Frost Plan Your Day",
+        "https://www.frostscience.org/plan-your-day/"
+      ],
+      [
+        "Frost Dec 19 events",
+        "https://www.frostscience.org/calendar-events/"
+      ],
+      [
+        "YOTEL Miami",
+        "https://www.yotel.com/en/hotels/yotel-miami"
+      ],
+      [
+        "Bayside",
+        "https://baysidemarketplace.com/visit/"
+      ]
+    ]
+  },
+  "2026-12-20": {
+    "hotel": "yotelpad",
+    "intro": "Ostatni dzień ma być lekki i odwracalny: śniadanie, jeden spacer lub zakupy, lunch, bagaże i lotnisko z dużym buforem.",
+    "trivia": [
+      "Metromover jest bezpłatny i ma 21 stacji w Downtown/Brickell; obecne godziny to 5:30–22:00 podczas prac modernizacyjnych.",
+      "W Miami-Dade zwykłe zakupy detaliczne mają obecnie łącznie 7% sales tax — cena na metce zwykle nie jest ceną końcową."
+    ],
+    "events": [
+      "Brickell City Centre ma opublikowane na 20 XII holiday hours 10:00–20:00 — nam i tak wystarczy 60–90 min."
+    ],
+    "tips": [
+      "Zakupy z listą: Brickell City Centre. Pamiątki / waterfront: Bayside. Luxury browsing: Design District tylko jeśli mamy konkretny cel.",
+      "Nie jedziemy do odległego outletu bez listy konkretnych produktów i realnej oszczędności przewyższającej koszt/czas transportu.",
+      "O 15:30–16:00 kończymy miasto niezależnie od tego, jak dobrze idzie dzień."
+    ],
+    "shopping": [
+      "Najpierw sprawdź ceny online przed wejściem do sklepu; uwzględnij 7% podatku.",
+      "Markowe zakupy: porównuj finalną cenę USA z ceną UE i gwarancją; sama cena na półce nie przesądza o okazji.",
+      "Nie kupujemy dużych rzeczy, które komplikują bagaż i ostatni transfer na MIA."
+    ],
+    "sources": [
+      [
+        "Metromover",
+        "https://www.miamidade.gov/global/transportation/metromover.page"
+      ],
+      [
+        "Brickell City Centre hours",
+        "https://www.simon.com/mall/brickell-city-centre/hours"
+      ],
+      [
+        "Florida tax",
+        "https://floridarevenue.com/taxes/Documents/flHistorySalesTaxRates.pdf"
+      ],
+      [
+        "YOTEL Miami",
+        "https://www.yotel.com/en/hotels/yotel-miami"
+      ]
     ]
   }
 };
