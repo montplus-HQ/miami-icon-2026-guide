@@ -1,4 +1,4 @@
-const CACHE='miami-icon-v0.8.3';
+const CACHE='miami-icon-v0.8.4';
 const CORE=[
   './',
   './index.html',
