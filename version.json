@@ -1,6 +1,6 @@
 {
-  "version": "0.8.7",
+  "version": "0.8.8",
   "released": "2026-11-06",
-  "note": "Plan B now uses selected day context, HARD constraints and day-specific fallback",
+  "note": "Plan B separates immediate action from day-specific rule",
   "min_schema": 1
 }
