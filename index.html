@@ -7,7 +7,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Miami + Icon 2026 — Mobile Guide v0.8.4</title>
+<title>Miami + Icon 2026 — Mobile Guide v0.8.5</title>
 <style>
 :root{--bg:#0b1220;--card:#121b2b;--card2:#182437;--text:#f4f7fb;--muted:#9fb0c8;--accent:#4da3ff;--green:#51d88a;--yellow:#ffd166;--red:#ff6b6b;--line:#26364d}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -95,7 +95,7 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
     <div class="kicker">MIAMI + ICON OF THE SEAS • 9–20 XII 2026</div>
     <h1>Mobile Guide</h1>
     <div class="muted">OFFLINE plan + szybkie linki LIVE. Bez mikrostopów, bez przeładowania.</div>
-    <div class="status">● WORKING PLAN V0.8.4 • CURRENT RESERVATIONS</div>
+    <div class="status">● WORKING PLAN V0.8.5 • CURRENT RESERVATIONS</div>
   </section>
 
 
@@ -112,7 +112,6 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
   <section class="card">
     <div class="kicker">✅ PRZED WYJAZDEM — OPEN ITEMS</div>
     <ul class="core">
-      <li><b>USA entry:</b> ESTA do zrobienia i zweryfikowania przed wylotem dla każdego podróżnego.</li>
       <li><b>Hotele:</b> obecne rezerwacje są tylko zabezpieczeniem; finalny wybór po porównaniu ceny całkowitej, lokalizacji i kosztu transportu.</li>
       <li><b>Miami transport:</b> publiczny transport jako baza; Uber Car Seat / transfer z fotelikiem tylko gdy potrzebny i dostępny. Lekki wózek jedzie z nami.</li><li><b>Dining:</b> aplikacja pokazuje Early 5:00 PM oraz waitlistę Late (MY TIME). Nie traktujemy wcześniejszego Late 19:30 jako aktualnego stanu.</li>
       <li><b>Port excursions:</b> Royal SHOREX są zarezerwowane w Costa Maya, Roatán i Cozumel. Aktualna cena ofertowa jest już znana dla Roatán i Cozumel; cena Chacchoben oraz kwoty faktycznie zapłacone wymagają jeszcze order history / Cruise Planner.</li>
@@ -571,7 +570,7 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || location.hos
 window.addEventListener('online',checkGuideVersion);
 
 
-const APP_VERSION='0.8.4';
+const APP_VERSION='0.8.5';
 let swRegistration=null;
 
 function versionParts(v){return String(v).split('.').map(x=>parseInt(x,10)||0);}
