@@ -1,6 +1,6 @@
 {
-  "version": "0.9.0",
+  "version": "0.9.1",
   "released": "2026-11-06",
-  "note": "Modernized PWA: stateful navigation, bottom-sheet Plan B, render-on-demand, Wake Lock and hardened offline updates",
+  "note": "Hotels approved and Miami day guide expanded with events, local food, tips and shopping strategy",
   "min_schema": 2
 }
