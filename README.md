@@ -2,7 +2,7 @@
 
 Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of the Seas**.
 
-**Current:** v0.9.0 — modernization pass, 2026-11-06.
+**Current:** v0.9.1 — approved hotel baselines + expanded Miami guide, 2026-11-06.
 
 ## Co zmienia v0.9.0
 
@@ -33,3 +33,10 @@ Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of 
 ## Prywatność
 
 Repo jest publiczne. Nie przechowuje nazwisk, numerów rezerwacji, numeru kabiny, danych paszportowych ani innych danych wrażliwych.
+
+## Hotels & Miami guide
+
+- 🏨 Courtyard Miami Downtown/Brickell Area — approved refundable baseline for 9–12 XII.
+- 🏨 YOTELPAD Miami — approved refundable baseline for 19–20 XII.
+- 📖 Miami days now include a descriptive guide: local context, confirmed/current event watchlist, family tactics, shopping strategy and official-source links.
+- 🍽 Hotel breakfasts are part of the default day flow; local restaurant A/B choices remain separate from hotel breakfast.
