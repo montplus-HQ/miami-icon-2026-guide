@@ -1,6 +1,6 @@
 {
-  "version": "0.8.2",
+  "version": "0.8.3",
   "released": "2026-11-06",
-  "note": "Royal reservations synchronized: shows + Costa Maya/Roatan/Cozumel SHOREX; dining status updated",
+  "note": "Full Roatan/Cozumel Royal excursion names and current displayed prices added",
   "min_schema": 1
 }
