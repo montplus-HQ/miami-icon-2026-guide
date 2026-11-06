@@ -7,7 +7,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Miami + Icon 2026 — Mobile Guide v0.8.7</title>
+<title>Miami + Icon 2026 — Mobile Guide v0.8.8</title>
 <style>
 :root{--bg:#0b1220;--card:#121b2b;--card2:#182437;--text:#f4f7fb;--muted:#9fb0c8;--accent:#4da3ff;--green:#51d88a;--yellow:#ffd166;--red:#ff6b6b;--line:#26364d}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -97,7 +97,7 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
     <div class="kicker">MIAMI + ICON OF THE SEAS • 9–20 XII 2026</div>
     <h1>Mobile Guide</h1>
     <div class="muted">OFFLINE plan + szybkie linki LIVE. Bez mikrostopów, bez przeładowania.</div>
-    <div class="status">● WORKING PLAN V0.8.7 • CURRENT RESERVATIONS</div>
+    <div class="status">● WORKING PLAN V0.8.8 • CURRENT RESERVATIONS</div>
   </section>
 
 
@@ -554,22 +554,26 @@ function planBReturnHref(d,p){
 }
 function buildReplan(d,p,e,t){
   const foodB=d.food&&d.food[1] ? d.food[1][1] : (d.food&&d.food[0] ? d.food[0][1] : 'najprostsze dostępne jedzenie');
+  const core0=d.core&&d.core[0] ? d.core[0] : d.now;
   let title='Wersja skrócona';
-  let decision=d.planb;
-  let keep='Zachowujemy najważniejszy CORE: '+(d.core&&d.core[0] ? d.core[0] : d.now)+'.';
+  let decision='Kończymy po jednym prostym bloku i wracamy do bazy.';
+  let keep='Zachowujemy najważniejszy CORE: '+core0+'.';
   let drop='Nie dokładamy nic spoza planu.';
 
   if(e==='low'){
     title='Kończymy aktywną część dnia';
-    keep='Nie dokładamy kolejnych atrakcji. Jedzenie: '+foodB+'. Potem baza / statek.';
-    drop='Wszystko opcjonalne znika. HARD pozostaje widoczny poniżej i wymaga osobnej decyzji, jeśli miałby być zmieniony.';
+    decision='Wracamy do bazy / na statek przy najbliższej sensownej okazji. Jeśli trzeba zjeść: '+foodB+'.';
+    keep='Zachowujemy tylko rzeczy HARD, których nie chcemy stracić bez osobnej decyzji.';
+    drop='Wszystkie atrakcje opcjonalne i dodatkowe klastry odpadają.';
   }else if(t<=30){
     title='Mamy tylko 30 minut';
-    keep='Robimy wyłącznie najbliższy prosty krok albo wracamy do bazy. Jedzenie: '+foodB+'.';
-    drop='Nie rozpoczynamy nowego klastra, długiego przejazdu ani dodatkowej atrakcji.';
+    decision='Nie rozpoczynamy nic nowego. Kończymy to, co jest pod ręką, albo wracamy.';
+    keep='Najbliższy prosty krok; jeśli potrzebne jedzenie: '+foodB+'.';
+    drop='Nowy klaster, długi przejazd i dodatkowa atrakcja odpadają.';
   }else if(e==='mid' || t<=60){
     title='Zostaje jeden prosty blok';
-    keep='Zachowujemy jeden najważniejszy element: '+(d.core&&d.core[0] ? d.core[0] : d.now)+'. Potem '+foodB+' i powrót.';
+    decision='Zostawiamy tylko jeden najważniejszy element dnia, potem jedzenie / powrót.';
+    keep=core0+'. Potem '+foodB+' i powrót.';
     drop='Drugi klaster / bonus / dokładanie nowych punktów odpada.';
   }else if(e==='good' && t>=120){
     title='Plan bazowy nadal działa';
@@ -578,7 +582,7 @@ function buildReplan(d,p,e,t){
     drop='Plan B nie jest potrzebny, dopóki nie zmieni się energia, czas albo warunki LIVE.';
   }
 
-  return {title,decision,keep,drop};
+  return {title,decision,keep,drop,dayRule:d.planb};
 }
 function replan(){
   const idx=Number($('#planbDay').value);
@@ -592,7 +596,8 @@ function replan(){
   $('#result').innerHTML=`<div class="result">
     <div class="kicker">PLAN B • ${d.label}</div>
     <h3>${r.title}</h3>
-    <div class="planbline"><b>Decyzja:</b> ${r.decision}</div>
+    <div class="planbline"><b>Decyzja teraz:</b> ${r.decision}</div>
+    <div class="planbline"><b>Reguła dnia:</b> ${r.dayRule}</div>
     <div class="planbline"><b>Zostaje:</b> ${r.keep}</div>
     <div class="planbline"><b>Odpuszczamy:</b> ${r.drop}</div>
     <div class="planbline"><b>HARD / nie zgubić:</b> ${d.hard}</div>
@@ -647,7 +652,7 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || location.hos
 window.addEventListener('online',checkGuideVersion);
 
 
-const APP_VERSION='0.8.7';
+const APP_VERSION='0.8.8';
 let swRegistration=null;
 
 function versionParts(v){return String(v).split('.').map(x=>parseInt(x,10)||0);}
