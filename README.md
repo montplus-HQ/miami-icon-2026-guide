@@ -2,7 +2,7 @@
 
 Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of the Seas**.
 
-**Current:** v0.8.4 — Royal excursion names/prices synchronized 2026-11-06.
+**Current:** v0.8.5 — Royal excursion names/prices synchronized 2026-11-06.
 
 - 🎭 Day 1: Headliner Showtime 19:15 — RESERVED.
 - ✨ Day 2: STARBURST 19:00, 50 min — RESERVED.
@@ -13,7 +13,7 @@ Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of 
 - 🌈 Day 7: The Wizard of Oz 19:00, 1 h 40 min — Royal Theater — RESERVED.
 - 🍽 Dining: aplikacja pokazuje Early 5:00 PM + waitlist Late (MY TIME).
 - 🏨 Hotele: finalny wybór nadal otwarty; obecne rezerwacje są zabezpieczeniem.
-- ✅ Pre-trip: ESTA, hotel comparison, Chacchoben price, SHOREX order history/cancellation terms i gratuities.
+- ✅ Pre-trip: hotel comparison, Chacchoben price, SHOREX order history/cancellation terms i gratuities.
 
 **Uwaga:** ceny z Cruise Planner są bieżącymi cenami ofertowymi, nie automatycznie kwotą faktycznie zapłaconą za istniejącą rezerwację.
 
