@@ -4,102 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="dark">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Miami + Icon 2026 — Mobile Guide v0.8.8</title>
-<style>
-:root{--bg:#0b1220;--card:#121b2b;--card2:#182437;--text:#f4f7fb;--muted:#9fb0c8;--accent:#4da3ff;--green:#51d88a;--yellow:#ffd166;--red:#ff6b6b;--line:#26364d}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.wrap{max-width:760px;margin:auto;padding:14px 14px 100px}
-.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin:12px 0}
-.hero{background:linear-gradient(135deg,#13233b,#0f1a2c)}
-h1{font-size:26px;margin:0 0 5px} h2{font-size:19px;margin:0 0 10px} h3{font-size:16px;margin:12px 0 6px}
-.muted,.small{color:var(--muted)} .small{font-size:13px;line-height:1.45}
-.kicker{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.status{display:inline-block;margin-top:10px;padding:7px 10px;border-radius:999px;background:#10261d;color:#b8f4cf;font-size:12px;font-weight:800}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;background:#1c2b41;border:1px solid #35506f;border-radius:13px;padding:11px 13px;font-weight:800;min-height:44px}
-.btn.primary{background:#1570ef;border-color:#1570ef} .btn.green{background:#147a45;border-color:#147a45} .btn.red{background:#9a2b2b;border-color:#9a2b2b} .btn.yellow{background:#765c12;border-color:#765c12}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px} .full{width:100%}
-.daygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px} .daylink{text-decoration:none;color:#fff;background:#142033;border:1px solid var(--line);border-radius:16px;padding:12px}
-.daylink b{display:block;font-size:15px} .daylink span{font-size:12px;color:var(--muted)}
-.core{margin:0;padding-left:20px} .core li{margin:6px 0}
-.choice{background:var(--card2);border:1px solid var(--line);border-radius:15px;padding:12px;margin-top:8px}
-.hard{border-left:4px solid var(--red)} .live{border-left:4px solid var(--green)}
-details{background:#0f1928;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:10px} summary{font-weight:800;cursor:pointer}
-.bottom{position:fixed;left:0;right:0;bottom:0;background:rgba(7,12,20,.96);border-top:1px solid var(--line);backdrop-filter:blur(10px);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
-.bottomin{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:7px} .nav{text-decoration:none;color:white;text-align:center;background:#142033;border-radius:12px;padding:9px 3px;font-size:12px;font-weight:800}
-#changedPanel{display:none} select{width:100%;background:#0e1725;color:white;border:1px solid #324761;border-radius:12px;padding:11px;font-size:15px;margin-top:6px}
-.result{background:#10261d;border:1px solid #1f6c45;border-radius:14px;padding:12px;margin-top:12px}
-.result h3{margin:0 0 6px}.result .planbline{margin-top:8px}.result .planbactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-@media(max-width:520px){.result .planbactions{grid-template-columns:1fr}}
-.alertbox{background:#221d10;border:1px solid #6f5a18;border-radius:16px;padding:13px;margin-top:10px}
-.alertbox.checked{background:#10261d;border-color:#1f6c45;opacity:.78}
-.alerthead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.alerttitle{font-weight:900}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:900;background:#765c12;color:#fff}
-.badge.red{background:#9a2b2b}.badge.green{background:#147a45}
-.checkbtn{border:0;background:#1c2b41;color:#fff;border-radius:10px;padding:8px 10px;font-weight:800}
-.livecenter{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-@media(max-width:520px){.livecenter{grid-template-columns:1fr}}
-@media(max-width:520px){.daygrid{grid-template-columns:1fr} h1{font-size:23px}}
-
-.quickbar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.quickbar .btn{padding:12px 8px;text-align:center}
-.routebox{background:#0e1725;border:1px solid #2e4665;border-radius:16px;padding:13px;margin-top:10px}
-.routebox .step{display:flex;gap:10px;margin:9px 0;align-items:flex-start}
-.routebox .n{flex:0 0 26px;height:26px;border-radius:50%;background:#1c2b41;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
-.copyline{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
-.copytxt{font-size:12px;color:var(--muted);word-break:break-word}
-.mini{padding:7px 9px;min-height:34px;font-size:12px}
-.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.pill{font-size:11px;font-weight:800;padding:5px 8px;border-radius:999px;background:#172235;border:1px solid #2c425f;color:#c7d5e8}
-@media(max-width:520px){.quickbar{grid-template-columns:1fr 1fr}.quickbar .btn:first-child{grid-column:1/-1}}
-
-
-.today-compact{display:grid;gap:10px}
-.today-card{background:#101a29;border:1px solid #2a3c55;border-radius:16px;padding:13px}
-.today-card strong{display:block;font-size:16px;margin-bottom:4px}
-.today-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.today-actions .btn{width:100%}
-.dayselect{width:100%;background:#0e1725;color:white;border:1px solid #324761;border-radius:12px;padding:11px;font-size:15px;margin-top:8px}
-.hardline{display:flex;gap:8px;align-items:flex-start}
-.harddot{width:10px;height:10px;border-radius:50%;background:#ff6b6b;margin-top:6px;flex:0 0 auto}
-@media(max-width:520px){.today-actions{grid-template-columns:1fr}}
-
-
-.netbadge{position:fixed;right:12px;top:12px;z-index:99;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:900;
-background:#10261d;color:#b8f4cf;border:1px solid #1f6c45;box-shadow:0 6px 18px rgba(0,0,0,.22)}
-.netbadge.offline{background:#3a2710;color:#ffd89a;border-color:#765c12}
-.installbox{display:none;background:#101a29;border:1px solid #2a3c55;border-radius:16px;padding:13px;margin-top:10px}
-
-
-.update-banner{display:none;position:fixed;left:12px;right:12px;top:50px;z-index:120;max-width:736px;margin:auto;
-background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.update-banner.show{display:block}
-.update-banner strong{display:block;margin-bottom:4px}
-.update-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
-
-</style>
+<link rel="stylesheet" href="styles.css">
+<title>Miami + Icon 2026 — Mobile Guide v0.9.0</title>
 </head>
 <body>
 <div id="netBadge" class="netbadge">● ONLINE</div>
+
 <div id="updateBanner" class="update-banner">
   <strong>🟢 Dostępna nowsza wersja przewodnika</strong>
   <div class="small" id="updateText">Możesz odświeżyć aplikację bez reinstalacji.</div>
   <div class="update-actions">
-    <button class="btn green" onclick="applyUpdate()">Odśwież teraz</button>
-    <button class="btn" onclick="document.getElementById('updateBanner').classList.remove('show')">Później</button>
+    <button class="btn green" id="applyUpdateBtn">Odśwież teraz</button>
+    <button class="btn" id="dismissUpdateBtn">Później</button>
   </div>
 </div>
+
 <div class="wrap">
   <section class="hero" id="home">
     <div class="kicker">MIAMI + ICON OF THE SEAS • 9–20 XII 2026</div>
     <h1>Mobile Guide</h1>
     <div class="muted">OFFLINE plan + szybkie linki LIVE. Bez mikrostopów, bez przeładowania.</div>
-    <div class="status">● WORKING PLAN V0.8.8 • CURRENT RESERVATIONS</div>
+    <div class="status">● WORKING PLAN V0.9.0 • MODERNIZED PWA</div>
   </section>
-
 
   <section class="card">
     <div class="kicker">📌 BASELINE TRANSPORTOWY</div>
@@ -114,17 +44,21 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
   <section class="card">
     <div class="kicker">✅ PRZED WYJAZDEM — OPEN ITEMS</div>
     <ul class="core">
-      <li><b>Hotele:</b> obecne rezerwacje są tylko zabezpieczeniem; finalny wybór po porównaniu ceny całkowitej, lokalizacji i kosztu transportu.</li>
-      <li><b>Miami transport:</b> publiczny transport jako baza; Uber Car Seat / transfer z fotelikiem tylko gdy potrzebny i dostępny. Lekki wózek jedzie z nami.</li><li><b>Dining:</b> aplikacja pokazuje Early 5:00 PM oraz waitlistę Late (MY TIME). Nie traktujemy wcześniejszego Late 19:30 jako aktualnego stanu.</li>
-      <li><b>Port excursions:</b> Royal SHOREX są zarezerwowane w Costa Maya, Roatán i Cozumel. Dziecko $0; płatne są 2 osoby dorosłe. Bieżący łączny benchmark ofertowy trzech wycieczek: $591.94. Order history / cancellation terms sprawdzamy tylko przed ewentualną zmianą rezerwacji.</li>
+      <li><b>Hotele:</b> preferowany baseline to obecne odwoływalne rezerwacje; zmiana tylko przy wyraźnie lepszym bilansie ceny, lokalizacji, śniadania i transportu.</li>
+      <li><b>Miami transport:</b> publiczny transport jako baza; Uber Car Seat / transfer z fotelikiem tylko gdy potrzebny i dostępny. Lekki wózek jedzie z nami.</li>
+      <li><b>Dining:</b> aplikacja Royal pokazuje Early 5:00 PM oraz waitlistę Late (MY TIME). Nie traktujemy wcześniejszego Late 19:30 jako aktualnego stanu.</li>
+      <li><b>Port excursions:</b> Royal SHOREX są zarezerwowane w Costa Maya, Roatán i Cozumel. Dziecko $0; płatne są 2 osoby dorosłe. Bieżący benchmark trzech wycieczek: $591.94.</li>
     </ul>
   </section>
 
-  <section class="card" id="todayCard">
+  <section class="card view-fade" id="todayCard">
     <div class="kicker">⭐ TRYB DZISIAJ</div>
     <h2 id="todayTitle">Wybierz dzień</h2>
-    <div class="small">W podróży wybór ustawi się automatycznie wg daty telefonu. Przed wyjazdem możesz użyć podglądu dnia.</div>
-    <select id="previewDay" class="dayselect" onchange="setPreviewDay(this.value)"></select>
+    <div class="small">W podróży wybór ustawi się automatycznie wg daty telefonu. Wybrany dzień jest zapisany w adresie, więc Back/Forward i odświeżenie zachowują kontekst.</div>
+    <select id="previewDay" class="dayselect" aria-label="Wybierz dzień podróży"></select>
+    <div class="today-tools">
+      <button class="btn" id="wakeBtn" type="button" hidden aria-pressed="false">☀️ Ekran aktywny: wył.</button>
+    </div>
     <div id="todayBody" class="today-compact" style="margin-top:12px"></div>
   </section>
 
@@ -148,7 +82,7 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
     <div class="small">Po instalacji i pierwszym otwarciu online podstawowa treść przewodnika zostaje w cache. Linki LIVE nadal wymagają internetu.</div>
     <div class="row">
       <button class="btn primary" id="installBtn">Zainstaluj</button>
-      <button class="btn" onclick="document.getElementById('installBox').style.display='none'">Później</button>
+      <button class="btn" id="installLaterBtn">Później</button>
     </div>
   </section>
 
@@ -157,541 +91,52 @@ background:#10261d;border:1px solid #1f6c45;border-radius:16px;padding:12px 13px
     <div class="daygrid" id="daygrid"></div>
   </section>
 
-  <div id="days"></div>
-
-  <section class="card" id="changed">
-    <button class="btn yellow full" onclick="toggleChanged()">🔄 PLAN SIĘ ZMIENIŁ</button>
-    <div id="changedPanel">
-      <h3>Którego dnia dotyczy zmiana?</h3>
-      <select id="planbDay" class="dayselect" onchange="setPlanBDay(this.value)"></select>
-      <h3>Jak wyglądamy?</h3>
-      <select id="energy">
-        <option value="good">🙂 dobra energia</option>
-        <option value="mid">😐 średnia energia</option>
-        <option value="low">🫠 koniec baterii</option>
-      </select>
-      <h3>Ile jeszcze chcemy działać?</h3>
-      <select id="timeleft">
-        <option value="30">30 min</option>
-        <option value="60">około 1 h</option>
-        <option value="120">2 h lub więcej</option>
-      </select>
-      <button class="btn green full" style="margin-top:12px" onclick="replan()">Pokaż Plan B dla tego dnia</button>
-      <div id="result"></div>
-    </div>
-  </section>
+  <main id="dayDetail" class="day-detail view-fade" aria-live="polite"></main>
 </div>
 
-<nav class="bottom">
+<dialog id="planbDialog" class="sheet" aria-labelledby="planbTitle">
+  <div class="sheet-inner">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <div class="kicker">⚠️ PLAN B / TRIGGER</div>
+        <h2 id="planbTitle">PLAN SIĘ ZMIENIŁ</h2>
+      </div>
+      <button class="sheet-close" id="closePlanB" type="button" aria-label="Zamknij Plan B">×</button>
+    </div>
+
+    <div class="planb-context" id="planbContext">Wybierz dzień i sytuację.</div>
+    <label for="planbDay"><b>Którego dnia dotyczy zmiana?</b></label>
+    <select id="planbDay" class="dayselect"></select>
+
+    <h3>Jak wyglądamy?</h3>
+    <select id="energy">
+      <option value="good">🙂 dobra energia</option>
+      <option value="mid">😐 średnia energia</option>
+      <option value="low">🫠 koniec baterii</option>
+    </select>
+
+    <h3>Ile jeszcze chcemy działać?</h3>
+    <select id="timeleft">
+      <option value="30">30 min</option>
+      <option value="60">około 1 h</option>
+      <option value="120">2 h lub więcej</option>
+    </select>
+
+    <button class="btn green full" style="margin-top:12px" id="replanBtn">Pokaż Plan B dla tego dnia</button>
+    <div id="result" role="status" aria-live="polite"></div>
+  </div>
+</dialog>
+
+<nav class="bottom" aria-label="Główna nawigacja">
   <div class="bottomin">
-    <a class="nav" href="#todayCard">🏠<br>DZIŚ</a>
-    <a class="nav" href="#live-center">🔴<br>LIVE</a>
+    <a class="nav" data-app-view="today" href="?view=today">🏠<br>DZIŚ</a>
+    <a class="nav" data-app-view="live" href="?view=live">🔴<br>LIVE</a>
     <a class="nav" href="https://www.google.com/maps/search/?api=1&query=Miami%20FL">🗺<br>MAPY</a>
-    <a class="nav" href="#changed">⚠️<br>PLAN B</a>
+    <button class="nav" id="planbNav" type="button">⚠️<br>PLAN B</button>
   </div>
 </nav>
 
-<script>
-const trip=[{"date":"2026-12-09","label":"9 XII • środa","title":"Przylot do Miami","theme":"Podróż + regeneracja","status":"READY • HOTEL TBD","hard":"Lot ląduje 17:35 • hotel pozostaje TBD do końcowego porównania","now":"MIA → hotel (wybór końcowy później)","next":"Kolacja tylko jeśli macie siłę","core":["Immigration + bagaż","MIA Mover → Metrorail / transport publiczny jako baza","Uber Car Seat tylko gdy jest dostępny i realnie upraszcza przejazd"],"food":[["A","Kolacja blisko wybranego hotelu","bez dodatkowego przejazdu po długim locie","Downtown Miami, FL"],["B","Take-away / szybki lokalny posiłek","priorytet: sen i regeneracja","Downtown Miami, FL"]],"live":["Miami transit","Uber","Pogoda"],"planb":"Jeśli wyjdziecie z lotniska późno: hotel + jedzenie + sen. Nie dokładamy zwiedzania.","maps":[["Downtown hub","Government Center, Miami, FL","transit"]]},{"date":"2026-12-10","label":"10 XII • czwartek","title":"South Beach + Art Deco","theme":"Klasyczne Miami w spokojnym tempie","status":"READY","hard":"Kończymy aktywną część dnia około 16:30–17:00","now":"Hotel → South Pointe / South Beach","next":"Plaża → Lummus → Ocean Drive","core":["South Pointe Park","Plaża i promenada","Lummus Park + Ocean Drive / Art Deco"],"food":[["A","Puerto Sagua","klasyczny kubański diner","700 Collins Ave, Miami Beach, FL"],["B","Lokalny fallback na South Beach","wybieramy blisko aktualnej trasy, bez specjalnego dojazdu","South Beach, Miami Beach, FL"]],"live":["Google Maps transit","Uber","Pogoda","South Beach Trolley"],"planb":"Jeśli plaża jest hitem — zostajecie dłużej. Jeśli energia spada — skracamy spacer, nie dokładamy kolejnej dzielnicy.","maps":[["South Pointe","South Pointe Park, 1 Washington Ave, Miami Beach, FL","transit"],["Ocean Drive","Art Deco Welcome Center, 1001 Ocean Dr, Miami Beach, FL","walking"]]},{"date":"2026-12-11","label":"11 XII • piątek","title":"Little Havana + Vizcaya","theme":"Lokalne Miami + ogrody","status":"READY","hard":"Maksymalnie 2 klastry • powrót do hotelu około 16:00","now":"Hotel → Calle Ocho","next":"Lunch → Vizcaya → powrót","core":["Domino Park + Calle Ocho","Lokalny lunch","Vizcaya Museum & Gardens"],"food":[["A","Sanguich","kubańskie kanapki / szybki lunch","2057 SW 8th St, Miami, FL"],["B","El Rey De Las Fritas","frita / klasyczne lokalne jedzenie","1821 SW 8th St, Miami, FL"]],"live":["Miami transit","Uber","Pogoda"],"planb":"Jeśli rano tempo jest wolniejsze: zostawiamy Little Havana jako CORE, a Vizcaya może wypaść. Bez dokładania Wynwood.","maps":[["Calle Ocho","Domino Park, 1444 SW 8th St, Miami, FL 33135","transit"],["Vizcaya","Vizcaya Museum & Gardens, 3251 S Miami Ave, Miami, FL","transit"]]},{"date":"2026-12-12","label":"12 XII • sobota","title":"Icon of the Seas — embarkation","theme":"Wejście na statek + sail away + wieczorny show","status":"HARD","hard":"Odpłynięcie 16:30 • Headliner Showtime 19:15 RESERVED • terminal i arrival slot sprawdzamy LIVE","now":"Hotel → PortMiami","next":"Muster → lunch → sail away → 19:15 Headliner Showtime","core":["Spokojne śniadanie + checkout","Uber Car Seat / wcześniej uzgodniony transfer do portu","Muster + kabina + lunch","19:15 Headliner Showtime — Royal Theater, Deck 4 Forward • 50 min • rezerwacja potwierdzona"],"food":[["A","AquaDome Market","casual lunch po wejściu","Icon of the Seas"],["B","Surfside Eatery","łatwo rodzinnie","Icon of the Seas"]],"live":["Royal App","Uber","PortMiami","Pogoda"],"planb":"Brak zwiedzania rano. Jeśli terminal się przeciąga — DAY-1 BAG ma wystarczyć do kabiny.","maps":[["PortMiami","PortMiami, Miami, FL","driving"]]},{"date":"2026-12-13","label":"13 XII • niedziela","title":"Sea Day #1 — STARBURST","theme":"Poznajemy Icon bez pośpiechu","status":"READY","hard":"STARBURST 19:00 RESERVED • 50 min • pozostałe godziny sprawdzamy LIVE","now":"Surfside rano","next":"Odpoczynek → rodzinne aktywności → STARBURST 19:00","core":["Surfside","Basen / spokojne rodzinne atrakcje","19:00 STARBURST — 50 min — rezerwacja potwierdzona"],"food":[["A","Surfside Eatery","wygodnie rodzinnie","Icon of the Seas"],["B","AquaDome Market","większy wybór","Icon of the Seas"]],"live":["Royal App","Showtimes","Dining availability"],"planb":"Jeśli dziecko nie chce Adventure Ocean — rezygnujemy bez konsekwencji. Jeden główny show wystarczy.","maps":[]},{"date":"2026-12-14","label":"14 XII • poniedziałek","title":"Costa Maya — Chacchoben Mayan Ruins","theme":"Royal SHOREX + Majowie","status":"RESERVED","hard":"Chacchoben Mayan Ruins 08:30 • 4 h • RESERVED • $110.99/paying guest","now":"Royal SHOREX — Chacchoben Mayan Ruins 08:30","next":"Powrót około 12:30 → lunch / spokojny Icon","core":["Royal SHOREX zarezerwowany: Chacchoben Mayan Ruins, 08:30, 4 h","Dziecko $0; płatne 2 osoby dorosłe","Aktualny benchmark oferty: 2 × $110.99 = $221.98"],"food":[["A","Lunch w ramach wybranej opcji","jeśli obejmuje lokalny posiłek","Costa Maya, Mexico"],["B","Lunch na Icon","najprostszy wariant po powrocie","Icon of the Seas"]],"live":["Royal App","Meeting point","Pogoda","Port status"],"planb":"Jeśli rozważamy zmianę, najpierw sprawdzamy order history i warunki anulowania; nie anulujemy działającej rezerwacji przed zabezpieczeniem lepszej opcji.","maps":[["Port Costa Maya","Costa Maya Cruise Port, Mahahual, Mexico","driving"]]},{"date":"2026-12-15","label":"15 XII • wtorek","title":"Roatán — Chocolate Factory + Monkey & Sloth Park","theme":"Zarezerwowana wycieczka + elastyczny powrót","status":"RESERVED • PRICE CHECK","hard":"Accessible Chocolate Factory, Monkey & Sloth Park, and Scenic Tour • 08:00 • 3 h • RESERVED","now":"Royal SHOREX 08:00 — Accessible Chocolate Factory, Monkey & Sloth Park, and Scenic Tour","next":"Po około 11:00 krótki lunch / spacer albo wcześniejszy powrót","core":["Royal SHOREX zarezerwowany: 08:00, 3 h","Dziecko $0; płatne 2 osoby dorosłe","Aktualny benchmark oferty: 2 × $126.99 = $253.98"],"food":[["A","Baleada / lokalny lunch","krótko i lokalnie, jeśli naturalnie wypada na trasie","Roatan, Honduras"],["B","Lunch na Icon","pewny fallback","Icon of the Seas"]],"live":["Royal App","Meeting point","Pogoda"],"planb":"Order history i zasady anulowania sprawdzamy dopiero przed ewentualną zmianą rezerwacji.","maps":[["Port Roatán","Coxen Hole Cruise Port, Roatan, Honduras","driving"]]},{"date":"2026-12-16","label":"16 XII • środa","title":"Cozumel — Scenic Open Top Bus + Mayan Heritage + Beach","theme":"Zarezerwowana 5-godzinna wycieczka","status":"RESERVED • PRICE CHECK","hard":"Best of Cozumel: Scenic Open Top Bus, Mayan Heritage & Beach Escape • 09:30 • 5 h • RESERVED","now":"Royal SHOREX 09:30 — Best of Cozumel: Scenic Open Top Bus, Mayan Heritage & Beach Escape","next":"Około 14:30 późny lunch / krótki port → spokojny powrót","core":["Royal SHOREX zarezerwowany: 09:30, 5 h","Dziecko $0; płatne 2 osoby dorosłe","Aktualny benchmark oferty: 2 × $57.99 = $115.98"],"food":[["A","Lokalne tacos / mała restauracja","wybieramy po trasie, bez resortowego pakietu","San Miguel de Cozumel, Quintana Roo, Mexico"],["B","Lunch na Icon","jeśli nie trafimy na dobry lokalny moment","Icon of the Seas"]],"live":["Taxi / Google Maps","Pogoda","Warunki morza","Royal App"],"planb":"Po zakończeniu około 14:30 nie dokładamy drugiego dużego programu. Order history i anulowanie sprawdzamy tylko przed ewentualną zmianą.","maps":[["Port Cozumel","Cozumel Cruise Port, Cozumel, Mexico","walking"]]},{"date":"2026-12-17","label":"17 XII • czwartek","title":"Sea Day #2 — AQUA ACTION!","theme":"Powtarzamy tylko to, co wygrało","status":"READY","hard":"AQUA ACTION! 19:45 RESERVED • 1 h","now":"Rodzinny poranek","next":"Odpoczynek → spokojny dzień → AQUA ACTION! 19:45","core":["Powtórka najlepszych rodzinnych atrakcji z pierwszego sea day","Czas rodzinny / odpoczynek","19:45 AQUA ACTION! — 1 h — rezerwacja potwierdzona"],"food":[["A","Surfside Eatery","łatwy rodzinny fallback","Icon of the Seas"],["B","AquaDome Market","elastycznie","Icon of the Seas"]],"live":["Royal App","Showtimes","Dining availability"],"planb":"Nie nadrabiamy atrakcji kosztem energii. Zachowujemy siły na zarezerwowany show 19:45.","maps":[]},{"date":"2026-12-18","label":"18 XII • piątek","title":"Perfect Day at CocoCay + The Wizard of Oz","theme":"Included family day","status":"READY","hard":"CocoCay 07:00–17:00 • The Wizard of Oz 19:00 RESERVED • 1 h 40 min","now":"Harbor Beach / rodzinne strefy","next":"Plaża / rodzinne strefy → powrót → kolacja → The Wizard of Oz 19:00","core":["Spokojna plaża + rodzinne strefy CocoCay","Included lunch; bez płatnych dodatków jako default","19:00 The Wizard of Oz — Royal Theater — 1 h 40 min — rezerwacja potwierdzona"],"food":[["A","Snack Shack","included","Perfect Day at CocoCay, Bahamas"],["B","Chill Grill","included","Perfect Day at CocoCay, Bahamas"]],"live":["Royal App","Pogoda","All aboard"],"planb":"Wracamy ze spokojnym buforem. Jeśli dzień na wyspie się przeciągnie, skracamy ostatni blok na CocoCay; show 19:00 pozostaje zarezerwowany.","maps":[["CocoCay","Perfect Day at CocoCay, Bahamas","walking"]]},{"date":"2026-12-19","label":"19 XII • sobota","title":"Miami po rejsie — Frost Science","theme":"Lekki dzień po zejściu ze statku","status":"READY • HOTEL TBD","hard":"Statek przypływa około 06:00 • najpierw bagaże i luggage drop","now":"PortMiami → zostawienie bagażu → Frost Science","next":"Odpoczynek + wczesna kolacja","core":["Zostawić bagaże w finalnie wybranym hotelu","Frost Science około 10:00–14:00","Wczesna kolacja i spokojny wieczór"],"food":[["A","La Camaronera","seafood, jeśli transport jest wygodny","1952 W Flagler St, Miami, FL"],["B","Garcia's Seafood Grille & Fish Market","alternatywa nad rzeką","398 NW North River Dr, Miami, FL"]],"live":["Miami transit","Uber","Pogoda"],"planb":"Jeśli zejście ze statku się przeciąga: skracamy Frost / lunch, nie dokładamy kolejnej dzielnicy.","maps":[["Frost Science","Phillip and Patricia Frost Museum of Science, 1101 Biscayne Blvd, Miami, FL","transit"]]},{"date":"2026-12-20","label":"20 XII • niedziela","title":"Downtown / Brickell + wylot","theme":"Bardzo lekki ostatni dzień","status":"HARD","hard":"Lot MIA 19:35 • cel: być na lotnisku około 16:00","now":"Lekki spacer / Metromover zależnie od hotelu","next":"MIA bez pośpiechu","core":["Bagaże zostają w hotelu do wyjazdu","Metromover / Bayfront / Brickell — tylko blisko i łatwo","Wyjazd w stronę MIA około 15:30–16:00"],"food":[["A","Lunch blisko hotelu","bez specjalnego dojazdu","Downtown Miami, FL"],["B","Lekki posiłek przed lotniskiem","jeśli dzień idzie wolniej","Downtown Miami, FL"]],"live":["Miami transit","Uber","MIA status","Pogoda"],"planb":"Nie dokładamy Everglades, Key Biscayne ani odległej atrakcji. Jeśli transport publiczny wygląda słabo: Uber Car Seat.","maps":[["MIA","Miami International Airport, Miami, FL","transit"]]}];
-
-const decisionAlerts ={
-  "2026-12-09": [
-    {
-      "id": "mia-arrival-transit",
-      "level": "yellow",
-      "title": "MIA → hotel: sprawdź trasę dopiero po finalnym wyborze hotelu",
-      "text": "Hotel nie jest jeszcze ustalony. Publiczny transport jest baseline, ale finalna trasa zależy od lokalizacji.",
-      "action": "Przed wyjazdem zapisz finalny adres hotelu i sprawdź LIVE Metrorail / Uber Car Seat.",
-      "url": "https://www.miamidade.gov/global/transportation/home.page",
-      "source": "Miami-Dade"
-    }
-  ],
-  "2026-12-10": [
-    {
-      "id": "beach-transit",
-      "level": "yellow",
-      "title": "South Beach: sprawdź transit / trolley przed wyjściem",
-      "text": "Korki i realny czas powrotu są ważniejsze niż planowany rozkład.",
-      "action": "Jeśli publiczny transport przestaje działać sensownie: Uber Car Seat.",
-      "url": "https://www.miamibeachfl.gov/trolleytracker/",
-      "source": "Miami Beach"
-    }
-  ],
-  "2026-12-11": [
-    {
-      "id": "little-havana-vizcaya",
-      "level": "yellow",
-      "title": "Little Havana → Vizcaya: sprawdź LIVE po lunchu",
-      "text": "Vizcaya jest drugim klastrem dnia, nie obowiązkiem.",
-      "action": "Jeśli energia lub transport są słabe: kończymy na Little Havana.",
-      "url": "https://www.miamidade.gov/global/transportation/home.page",
-      "source": "Miami-Dade"
-    }
-  ],
-  "2026-12-12": [
-    {
-      "id": "port-terminal",
-      "level": "red",
-      "title": "Embarkation: terminal + arrival slot",
-      "text": "Przed wyjazdem sprawdź Royal App i terminal PortMiami. To HARD dependency.",
-      "action": "Dopiero potem zamawiamy Uber Car Seat / transfer.",
-      "url": "https://www.miamidade.gov/portmiami/cruise-terminals.page",
-      "source": "PortMiami"
-    },
-    {
-      "id": "headliner-day1",
-      "level": "yellow",
-      "title": "Headliner Showtime 19:15 — rezerwacja potwierdzona",
-      "text": "Royal Theater, Deck 4 Forward • 50 min. Drzwi otwierają się 45 min przed rozpoczęciem.",
-      "action": "W dniu rejsu sprawdź w Royal App, czy godzina i teatr nie uległy zmianie.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal"
-    }
-  ],
-  "2026-12-13": [
-    {
-      "id": "starburst-day2",
-      "level": "yellow",
-      "title": "STARBURST 19:00 — rezerwacja potwierdzona",
-      "text": "Day 2 • 50 min. Godzinę i venue sprawdź ponownie w Royal App w dniu rejsu.",
-      "action": "Kolację zaplanuj odpowiednio wcześniej, bez ścigania się z show.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal"
-    }
-  ],
-  "2026-12-14": [
-    {
-      "id": "exc-costa-reserved",
-      "level": "red",
-      "title": "Chacchoben 08:30 — Royal SHOREX zarezerwowany",
-      "text": "4 h • $110.99 za płacącego gościa • dziecko $0 • benchmark rodziny $221.98.",
-      "action": "Order history i cancellation terms sprawdzamy tylko przed ewentualną zmianą rezerwacji.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal / Cruise Planner"
-    }
-  ],
-  "2026-12-15": [
-    {
-      "id": "exc-roatan-reserved",
-      "level": "red",
-      "title": "Roatán 08:00 — Royal SHOREX zarezerwowany",
-      "text": "Accessible Chocolate Factory, Monkey & Sloth Park, and Scenic Tour • 3 h • $126.99 za płacącego gościa • dziecko $0 • benchmark rodziny $253.98.",
-      "action": "Order history i cancellation terms sprawdzamy tylko przed ewentualną zmianą.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal / Cruise Planner"
-    }
-  ],
-  "2026-12-16": [
-    {
-      "id": "cozumel-reserved",
-      "level": "red",
-      "title": "Cozumel 09:30 — Royal SHOREX zarezerwowany",
-      "text": "Best of Cozumel: Scenic Open Top Bus, Mayan Heritage & Beach Escape • 5 h • $57.99 za płacącego dorosłego • dziecko $0 • benchmark rodziny $115.98.",
-      "action": "Order history i cancellation terms sprawdzamy tylko przed ewentualną zmianą.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal / Cruise Planner"
-    }
-  ],
-  "2026-12-17": [
-    {
-      "id": "aqua-action-day6",
-      "level": "yellow",
-      "title": "AQUA ACTION! 19:45 — rezerwacja potwierdzona",
-      "text": "Day 6 • 1 h. Godzinę i venue sprawdź ponownie w Royal App w dniu rejsu.",
-      "action": "Kolację ustaw wcześniej; nie przebudowuj całego dnia wokół dodatkowych atrakcji.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal"
-    }
-  ],
-  "2026-12-18": [
-    {
-      "id": "wizard-day7",
-      "level": "yellow",
-      "title": "The Wizard of Oz 19:00 — rezerwacja potwierdzona",
-      "text": "Day 7 • Royal Theater • 1 h 40 min.",
-      "action": "Po powrocie z CocoCay zostaw bufor na prysznic, kolację i dojście do teatru; sprawdź Royal App w dniu show.",
-      "url": "https://www.royalcaribbean.com/booked",
-      "source": "Royal"
-    }
-  ],
-  "2026-12-19": [
-    {
-      "id": "disembark-hotel",
-      "level": "yellow",
-      "title": "Disembarkation: finalny hotel + luggage drop",
-      "text": "Hotel po rejsie nadal jest TBD, więc nie hardkodujemy trasy.",
-      "action": "Po zejściu najpierw bagaże, potem Frost Science.",
-      "url": "https://www.google.com/maps",
-      "source": "Maps"
-    }
-  ],
-  "2026-12-20": [
-    {
-      "id": "mia-return",
-      "level": "red",
-      "title": "Powrót na MIA: sprawdź LIVE trasę i czas",
-      "text": "Cel to lotnisko około 16:00. Hotel finalny może zmienić punkt startu.",
-      "action": "Publiczny transport jako baseline; Uber Car Seat jako fallback.",
-      "url": "https://www.miamidade.gov/global/transportation/home.page",
-      "source": "Miami-Dade"
-    }
-  ]
-};
-
-const routeProfiles={"2026-12-09":{"anchor":"Government Center, Miami, FL","primary":"transit","primary_label":"🚇 Downtown hub","return":"Downtown Miami, FL","offline":["Finalna trasa zależy od wybranego hotelu — nie hardkodujemy dziś adresu.","Baseline z MIA: baggage claim → MIA Mover → Miami Intermodal Center.","Dalej Metrorail / Metromover / spacer wybieramy po finalnej lokalizacji hotelu.","Uber Car Seat jest fallbackiem, nie gwarantowanym środkiem podstawowym."],"pills":["HOTEL TBD","MIA MOVER","PUBLIC TRANSIT","CAR SEAT FALLBACK"]},"2026-12-10":{"anchor":"South Pointe Park, 1 Washington Ave, Miami Beach, FL 33139","primary":"transit","primary_label":"🏖 South Pointe","return":"Downtown Miami, FL","offline":["Jedziemy na South Beach transportem publicznym; LIVE decyduje o konkretnej linii.","Dzień prowadzimy liniowo: South Pointe → plaża → Lummus → Ocean Drive.","Miami Beach trolley jest darmowym lokalnym connector'em, jeśli pasuje do trasy.","Jeśli energia spada, skracamy spacer zamiast dodawać kolejną dzielnicę."],"pills":["SOUTH BEACH","ART DECO","TROLLEY LIVE","RETURN ~17:00"]},"2026-12-11":{"anchor":"Domino Park, 1444 SW 8th St, Miami, FL 33135","primary":"transit","primary_label":"🇨🇺 Calle Ocho","return":"Downtown Miami, FL","offline":["Pierwszy klaster: Domino Park / Calle Ocho + lokalny lunch.","Drugi klaster: Vizcaya tylko jeśli energia i transport nadal działają.","Sanguich / El Rey są kandydatami na lunch — wybieramy wg kolejki i wygody.","Wynwood nie jest częścią baseline tego dnia."],"pills":["CALLE OCHO","LOCAL FOOD","VIZCAYA OPTIONAL","NO WYNWOOD"]},"2026-12-12":{"anchor":"PortMiami, Miami, FL","primary":"driving","primary_label":"⚓ PortMiami","return":"PortMiami, Miami, FL","offline":["Rano tylko śniadanie, packing i checkout.","Najpierw w Royal sprawdź arrival slot i terminal.","Dopiero potem zamów Uber Car Seat / transfer.","DAY-1 BAG zostaje z Wami.","Wieczorem: Headliner Showtime 19:15, Royal Theater — Deck 4 Forward. Rezerwacja potwierdzona; show trwa 50 min. Przyjdźcie wcześniej — drzwi otwierają się 45 min przed show."],"pills":["ROYAL APP","TERMINAL LIVE","HEADLINER 19:15","RESERVED"]},"2026-12-13":{"anchor":"Icon of the Seas","primary":"walking","primary_label":"🚢 Royal / showtimes","return":"Icon of the Seas","offline":["Surfside jest rodzinną bazą.","Adventure Ocean jest opcją, nie obowiązkiem.","19:00 STARBURST — rezerwacja potwierdzona, 50 min.","Dining dopasowujemy do show i bieżącej energii."],"pills":["SURFSIDE","STARBURST 19:00","RESERVED","50 MIN"]},"2026-12-14":{"anchor":"Costa Maya Cruise Port, Mahahual, Mexico","primary":"walking","primary_label":"🗿 Costa Maya","return":"Costa Maya Cruise Port, Mahahual, Mexico","offline":["Royal SHOREX: Chacchoben Mayan Ruins — 08:30, 4 h, RESERVED.","Aktualnie $110.99 za płacącego gościa; dziecko $0; 2 dorosłych = $221.98.","Meeting point i instrukcje z Royal App / biletu mają pierwszeństwo.","Po powrocie zachowujemy spokojny bufor przed 17:00."],"pills":["RESERVED","08:30","4 H","$221.98"]},"2026-12-15":{"anchor":"Coxen Hole Cruise Port, Roatan, Honduras","primary":"walking","primary_label":"🌿 Roatán","return":"Coxen Hole Cruise Port, Roatan, Honduras","offline":["Royal SHOREX: Accessible Chocolate Factory, Monkey & Sloth Park, and Scenic Tour — 08:00, 3 h, RESERVED.","Aktualnie $126.99 za płacącego gościa; dziecko $0; 2 dorosłych = $253.98.","Meeting point i instrukcje z Royal App / biletu mają pierwszeństwo.","Po zakończeniu około 11:00 zostawiamy elastyczność; odpłynięcie 16:00."],"pills":["RESERVED","08:00","3 H","$253.98"]},"2026-12-16":{"anchor":"Cozumel Cruise Port, Cozumel, Mexico","primary":"walking","primary_label":"🚢 Port Cozumel","return":"Cozumel Cruise Port, Cozumel, Mexico","offline":["Royal SHOREX: Best of Cozumel: Scenic Open Top Bus, Mayan Heritage & Beach Escape — 09:30, 5 h, RESERVED.","Aktualnie $57.99 za płacącego dorosłego; dziecko $0; 2 dorosłych = $115.98.","Meeting point i instrukcje z Royal App / biletu mają pierwszeństwo.","Po zakończeniu około 14:30 zostawiamy czas na prosty posiłek i powrót; odpłynięcie 18:00."],"pills":["RESERVED","09:30","5 H","$115.98"]},"2026-12-17":{"anchor":"Icon of the Seas","primary":"walking","primary_label":"🎭 Royal / showtimes","return":"Icon of the Seas","offline":["Powtarzamy tylko atrakcje, które faktycznie wygrały pierwszy sea day.","Rodzinny odpoczynek ma pierwszeństwo przed checklistą.","19:45 AQUA ACTION! — rezerwacja potwierdzona, 1 h.","Dining i resztę aktywności dopasowujemy do show."],"pills":["REST","AQUA ACTION 19:45","RESERVED","1 H"]},"2026-12-18":{"anchor":"Perfect Day at CocoCay, Bahamas","primary":"walking","primary_label":"🏝 CocoCay","return":"Perfect Day at CocoCay, Bahamas","offline":["Default na CocoCay: bez płatnego Thrill Waterpark, cabany i Coco Beach Club.","Spokojna plaża + rodzinne strefy są wystarczającym CORE; korzystamy z included dining.","Wracamy na statek z zapasem, żeby spokojnie przygotować się na wieczór.","19:00 The Wizard of Oz — Royal Theater — RESERVED, 1 h 40 min."],"pills":["COCOCAY INCLUDED","WIZARD 19:00","RESERVED","1H40"]},"2026-12-19":{"anchor":"Phillip and Patricia Frost Museum of Science, 1101 Biscayne Blvd, Miami, FL","primary":"transit","primary_label":"🔬 Frost Science","return":"Downtown Miami, FL","offline":["Po zejściu ze statku najpierw bagaże i luggage drop w finalnym hotelu.","Frost Science jest głównym blokiem dnia.","Po muzeum odpoczynek, nie kolejna duża dzielnica.","Kolację dobieramy pod finalny hotel i wygodny transport."],"pills":["HOTEL TBD","LUGGAGE DROP","FROST","REST"]},"2026-12-20":{"anchor":"Miami International Airport, Miami, FL","primary":"transit","primary_label":"✈️ MIA","return":"Miami International Airport, Miami, FL","offline":["Ostatni dzień utrzymujemy lokalnie wokół finalnego hotelu / Downtown / Brickell.","Cel MIA około 16:00 na lot 19:35.","Transit backup w niedzielę: Government Center → Green Line northbound w kierunku Palmetto → Earlington Heights.","Na Earlington Heights przesiadka na Orange Line Airport Shuttle do MIA. Jeśli LIVE wygląda słabo: Uber Car Seat."],"pills":["LIGHT DAY","MIA 16:00","NORTHBOUND PALMETTO","CAR SEAT FALLBACK"]}};
-const $=s=>document.querySelector(s);
-function mapsUrl(dest,mode='walking'){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(dest)+'&travelmode='+mode;}
-
-function gmaps(dest,mode='walking'){
-  return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(dest)+'&travelmode='+mode+'&dir_action=navigate';
-}
-function copyText(text,btn){
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(()=>flashCopy(btn));
-  }else{
-    const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
-    document.execCommand('copy');ta.remove();flashCopy(btn);
-  }
-}
-function flashCopy(btn){const old=btn.textContent;btn.textContent='✓ Skopiowano';setTimeout(()=>btn.textContent=old,1200);}
-function operationalHtml(d){
-  const p=routeProfiles[d.date];
-  if(!p) return '';
-  const primaryHref=(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18')
-    ? 'https://www.royalcaribbean.com/booked' : gmaps(p.anchor,p.primary);
-  const returnHref=(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18')
-    ? 'https://www.royalcaribbean.com/booked' : gmaps(p.return,p.primary==='transit'?'transit':'driving');
-  return `<section class="card">
-    <div class="kicker">🧭 WYKONANIE</div>
-    <h2>Najkrótsza droga do działania</h2>
-    <div class="quickbar">
-      <a class="btn primary" href="${primaryHref}">${p.primary_label}</a>
-      <a class="btn" href="${returnHref}">↩ Powrót / baza</a>
-      <a class="btn green" href="#live-center">🔴 LIVE</a>
-    </div>
-    <div class="pillrow">${p.pills.map(x=>`<span class="pill">${x}</span>`).join('')}</div>
-    <div class="routebox">
-      ${p.offline.map((s,i)=>`<div class="step"><span class="n">${i+1}</span><div class="small">${s}</div></div>`).join('')}
-    </div>
-    <div class="copyline"><span class="copytxt">${p.anchor}</span>
-      <button class="checkbtn mini" onclick='copyText(${JSON.stringify(p.anchor)},this)'>📋 Kopiuj adres</button>
-    </div>
-  </section>`;
-}
-
-function liveLinks(items){
-  const links={
-    'Miami transit':['🚋 Transit','https://www.google.com/maps/dir/?api=1&destination=Miami%2C%20FL&travelmode=transit'],
-    'Google Maps transit':['🚋 Transit','https://www.google.com/maps/dir/?api=1&destination=Miami%2C%20FL&travelmode=transit'],
-    'Uber':['🚕 Uber','https://m.uber.com/ul/'],
-    'Pogoda':['🌦 Pogoda','https://weather.com/weather/today/l/Miami+FL'],
-    'Trolley':['🚎 Trolley','https://www.miami.gov/Transportation-Roadways/Trolley-Information'],
-    'South Beach Trolley':['🚎 Trolley','https://www.miamibeachfl.gov/city-hall/transportation/trolley/'],
-    'Royal App':['🚢 Royal','https://www.royalcaribbean.com/booked'],
-    'Showtimes':['🎭 Show','https://www.royalcaribbean.com/booked'],
-    'Dining availability':['🍽 Dining','https://www.royalcaribbean.com/booked'],
-    'Meeting point':['📍 Royal','https://www.royalcaribbean.com/booked'],
-    'Port status':['⚓ Port','https://www.royalcaribbean.com/booked'],
-    'PortMiami':['⚓ PortMiami','https://www.miamidade.gov/portmiami/'],
-    'MIA status':['✈️ MIA','https://www.miami-airport.com/'],
-    'Taxi / Google Maps':['🚕 Mapa','https://www.google.com/maps'],
-    'Warunki morza':['🌊 Pogoda','https://weather.com/'],
-    'All aboard':['🚢 Royal','https://www.royalcaribbean.com/booked']
-  };
-  return items.map(x=>links[x]||['🔗 '+x,'https://www.google.com/search?q='+encodeURIComponent(x)]).map(x=>`<a class="btn green" href="${x[1]}">${x[0]}</a>`).join('');
-}
-
-function isAlertChecked(id){
-  return localStorage.getItem('travelAlert:'+id)==='1';
-}
-function toggleAlert(id){
-  const key='travelAlert:'+id;
-  if(isAlertChecked(id)) localStorage.removeItem(key); else localStorage.setItem(key,'1');
-  render();
-  selectToday();
-}
-function alertHtml(d){
-  const list=decisionAlerts[d.date]||[];
-  if(!list.length) return '';
-  return `<section class="card"><div class="kicker">⚠️ ALERTY DECYZYJNE</div>
-    <h2>${list.length} rzecz do sprawdzenia</h2>
-    ${list.map(a=>{
-      const checked=isAlertChecked(a.id);
-      return `<div class="alertbox ${checked?'checked':''}">
-        <div class="alerthead">
-          <div><span class="badge ${a.level==='red'?'red':''}">${a.level==='red'?'HARD':'LIVE CHECK'}</span>
-          <div class="alerttitle" style="margin-top:7px">${a.title}</div></div>
-          <button class="checkbtn" onclick="toggleAlert('${a.id}')">${checked?'↩ Przywróć':'✓ Sprawdzone'}</button>
-        </div>
-        <div class="small" style="margin-top:8px">${a.text}<br><b>${a.action}</b></div>
-        <div class="row"><a class="btn green" href="${a.url}">🔎 ${a.source}</a></div>
-      </div>`;
-    }).join('')}
-  </section>`;
-}
-
-function render(){
-  const grid=$('#daygrid'), days=$('#days');
-  grid.innerHTML=trip.map((d,i)=>`<a class="daylink" href="#day${i}"><b>${d.label}</b><span>${d.title}</span></a>`).join('');
-  days.innerHTML=trip.map((d,i)=>{
-    const foods=d.food.map(f=>`<div class="choice"><b>${f[0]} • ${f[1]}</b><div class="small">${f[2]}</div><div class="row"><a class="btn" href="${mapsUrl(f[3]||f[1],'walking')}">🚶 Maps</a></div></div>`).join('');
-    const maps=d.maps.map(m=>`<a class="btn primary" href="${mapsUrl(m[1],m[2])}">🗺 ${m[0]}</a>`).join('');
-    return `<section class="hero" id="day${i}">
-      <div class="kicker">${d.label} • ${d.status}</div><h1>${d.title}</h1><div class="muted">${d.theme}</div>
-      <div class="status">${d.hard}</div>
-    </section>
-    <section class="card"><div class="kicker">TERAZ</div><h2>${d.now}</h2><div class="small">Następnie: ${d.next}</div><div class="row">${maps}</div></section>
-    ${operationalHtml(d)}
-    <section class="card"><div class="kicker">CORE</div><ul class="core">${d.core.map(x=>'<li>'+x+'</li>').join('')}</ul></section>
-    <section class="card"><div class="kicker">JEDZENIE A / B</div>${foods}</section>
-    <section class="card live" id="${i===0?'live-global':''}"><div class="kicker">🔴 LIVE</div><h2>Sprawdź tylko to, co może zmienić decyzję</h2><div class="row">${liveLinks(d.live)}</div></section>
-    ${alertHtml(d)}
-    <section class="card hard"><div class="kicker">PLAN B / TRIGGER</div><h2>⚠️ Gdy dzień przestaje działać</h2><div class="small">${d.planb}</div></section>`;
-  }).join('');
-}
-
-let previewIndex=null;
-function dayIndexByPhoneDate(){
-  const local = new Date();
-  const y=local.getFullYear();
-  const m=String(local.getMonth()+1).padStart(2,'0');
-  const d=String(local.getDate()).padStart(2,'0');
-  const key=`${y}-${m}-${d}`;
-  return trip.findIndex(x=>x.date===key);
-}
-function fillPreviewSelector(){
-  const options=trip.map((d,i)=>`<option value="${i}">${d.label} — ${d.title}</option>`).join('');
-  const s=$('#previewDay');
-  s.innerHTML=options;
-  const pb=$('#planbDay');
-  if(pb) pb.innerHTML=options;
-}
-function setPreviewDay(v){
-  previewIndex=Number(v);
-  renderTodayCompact(previewIndex);
-  const pb=$('#planbDay');
-  if(pb) pb.value=previewIndex;
-  const result=$('#result');
-  if(result) result.innerHTML='';
-}
-function setPlanBDay(v){
-  const idx=Number(v);
-  if(Number.isNaN(idx)||!trip[idx]) return;
-  previewIndex=idx;
-  const preview=$('#previewDay');
-  if(preview) preview.value=idx;
-  renderTodayCompact(idx);
-  const result=$('#result');
-  if(result) result.innerHTML='';
-}
-function renderTodayCompact(idx){
-  const d=trip[idx];
-  if(!d) return;
-  const p=routeProfiles[d.date]||{};
-  const alertCount=(decisionAlerts[d.date]||[]).filter(a=>!isAlertChecked(a.id)).length;
-  const primaryHref=(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18')
-    ? 'https://www.royalcaribbean.com/booked'
-    : gmaps(p.anchor||d.title,p.primary||'walking');
-  const returnHref=(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18')
-    ? 'https://www.royalcaribbean.com/booked'
-    : gmaps(p.return||p.anchor||d.title,(p.primary==='transit'?'transit':'driving'));
-  const foods=d.food.slice(0,2).map(f=>`${f[0]} • ${f[1]}`).join(' / ');
-  $('#todayTitle').textContent=d.label+' — '+d.title;
-  $('#previewDay').value=idx;
-  $('#todayBody').innerHTML=`
-    <div class="today-card">
-      <div class="kicker">TERAZ</div>
-      <strong>${d.now}</strong>
-      <div class="small">Następnie: ${d.next}</div>
-    </div>
-    <div class="today-card">
-      <div class="kicker">NAWIGACJA</div>
-      <div class="today-actions">
-        <a class="btn primary" href="${primaryHref}">🧭 Jedziemy / idziemy</a>
-        <a class="btn" href="${returnHref}">↩ Powrót / baza</a>
-      </div>
-    </div>
-    <div class="today-card">
-      <div class="kicker">JEDZENIE</div>
-      <strong>${foods || 'Included / elastycznie'}</strong>
-      <div class="small">Pełne A/B są niżej w karcie dnia.</div>
-    </div>
-    <div class="today-card">
-      <div class="kicker">LIVE</div>
-      <strong>${alertCount ? '⚠️ '+alertCount+' check do wykonania' : '✅ Brak otwartych checków'}</strong>
-      <div class="today-actions">
-        <a class="btn green" href="#live-center">🔴 LIVE Center</a>
-        <a class="btn" href="#day${idx}">Pełny dzień</a>
-      </div>
-    </div>
-    <div class="today-card hardline">
-      <span class="harddot"></span>
-      <div><div class="kicker">HARD / RETURN</div><strong>${d.hard}</strong></div>
-    </div>`;
-}
-
-function selectToday(){
-  fillPreviewSelector();
-  const phoneIdx=dayIndexByPhoneDate();
-  let idx=phoneIdx>=0 ? phoneIdx : 0;
-  if(previewIndex!==null) idx=previewIndex;
-  renderTodayCompact(idx);
-  const pb=$('#planbDay');
-  if(pb) pb.value=idx;
-}
-function toggleChanged(){
-  const p=$('#changedPanel');
-  p.style.display=p.style.display==='block'?'none':'block';
-  if(p.style.display==='block'){
-    const idx=previewIndex!==null ? previewIndex : Math.max(0,dayIndexByPhoneDate());
-    const pb=$('#planbDay');
-    if(pb) pb.value=idx;
-  }
-}
-function planBReturnHref(d,p){
-  if(d.date==='2026-12-13'||d.date==='2026-12-17'||d.date==='2026-12-18') return 'https://www.royalcaribbean.com/booked';
-  return gmaps((p&&p.return)||(p&&p.anchor)||d.title,(p&&p.primary)==='transit'?'transit':'driving');
-}
-function buildReplan(d,p,e,t){
-  const foodB=d.food&&d.food[1] ? d.food[1][1] : (d.food&&d.food[0] ? d.food[0][1] : 'najprostsze dostępne jedzenie');
-  const core0=d.core&&d.core[0] ? d.core[0] : d.now;
-  let title='Wersja skrócona';
-  let decision='Kończymy po jednym prostym bloku i wracamy do bazy.';
-  let keep='Zachowujemy najważniejszy CORE: '+core0+'.';
-  let drop='Nie dokładamy nic spoza planu.';
-
-  if(e==='low'){
-    title='Kończymy aktywną część dnia';
-    decision='Wracamy do bazy / na statek przy najbliższej sensownej okazji. Jeśli trzeba zjeść: '+foodB+'.';
-    keep='Zachowujemy tylko rzeczy HARD, których nie chcemy stracić bez osobnej decyzji.';
-    drop='Wszystkie atrakcje opcjonalne i dodatkowe klastry odpadają.';
-  }else if(t<=30){
-    title='Mamy tylko 30 minut';
-    decision='Nie rozpoczynamy nic nowego. Kończymy to, co jest pod ręką, albo wracamy.';
-    keep='Najbliższy prosty krok; jeśli potrzebne jedzenie: '+foodB+'.';
-    drop='Nowy klaster, długi przejazd i dodatkowa atrakcja odpadają.';
-  }else if(e==='mid' || t<=60){
-    title='Zostaje jeden prosty blok';
-    decision='Zostawiamy tylko jeden najważniejszy element dnia, potem jedzenie / powrót.';
-    keep=core0+'. Potem '+foodB+' i powrót.';
-    drop='Drugi klaster / bonus / dokładanie nowych punktów odpada.';
-  }else if(e==='good' && t>=120){
-    title='Plan bazowy nadal działa';
-    decision='Następnie: '+d.next;
-    keep='Zostaje obecny plan. Nie dokładamy nowej dzielnicy ani dodatkowej wycieczki.';
-    drop='Plan B nie jest potrzebny, dopóki nie zmieni się energia, czas albo warunki LIVE.';
-  }
-
-  return {title,decision,keep,drop,dayRule:d.planb};
-}
-function replan(){
-  const idx=Number($('#planbDay').value);
-  const d=trip[idx];
-  if(!d) return;
-  const p=routeProfiles[d.date]||{};
-  const e=$('#energy').value;
-  const t=Number($('#timeleft').value);
-  const r=buildReplan(d,p,e,t);
-  const returnHref=planBReturnHref(d,p);
-  $('#result').innerHTML=`<div class="result">
-    <div class="kicker">PLAN B • ${d.label}</div>
-    <h3>${r.title}</h3>
-    <div class="planbline"><b>Decyzja teraz:</b> ${r.decision}</div>
-    <div class="planbline"><b>Reguła dnia:</b> ${r.dayRule}</div>
-    <div class="planbline"><b>Zostaje:</b> ${r.keep}</div>
-    <div class="planbline"><b>Odpuszczamy:</b> ${r.drop}</div>
-    <div class="planbline"><b>HARD / nie zgubić:</b> ${d.hard}</div>
-    <div class="planbactions">
-      <a class="btn" href="${returnHref}">↩ Powrót / baza</a>
-      <a class="btn green" href="#day${idx}">Pełny plan dnia</a>
-    </div>
-  </div>`;
-}
-render(); selectToday();
-
-let deferredInstallPrompt=null;
-function updateNetworkBadge(){
-  const b=document.getElementById('netBadge');
-  if(!b) return;
-  if(navigator.onLine){b.textContent='● ONLINE';b.classList.remove('offline');}
-  else{b.textContent='● OFFLINE';b.classList.add('offline');}
-}
-window.addEventListener('online', updateNetworkBadge);
-window.addEventListener('offline', updateNetworkBadge);
-updateNetworkBadge();
-
-window.addEventListener('beforeinstallprompt', (e)=>{
-  e.preventDefault();
-  deferredInstallPrompt=e;
-  const box=document.getElementById('installBox');
-  if(box) box.style.display='block';
-});
-const installBtn=document.getElementById('installBtn');
-if(installBtn){
-  installBtn.addEventListener('click', async ()=>{
-    if(!deferredInstallPrompt) return;
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt=null;
-    document.getElementById('installBox').style.display='none';
-  });
-}
-
-if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost')){
-  window.addEventListener('load', async ()=>{
-    try{
-      swRegistration=await navigator.serviceWorker.register('./service-worker.js');
-      navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload());
-      await swRegistration.update();
-      checkGuideVersion();
-    }catch(e){}
-  });
-}else{
-  window.addEventListener('load',checkGuideVersion);
-}
-window.addEventListener('online',checkGuideVersion);
-
-
-const APP_VERSION='0.8.8';
-let swRegistration=null;
-
-function versionParts(v){return String(v).split('.').map(x=>parseInt(x,10)||0);}
-function isNewerVersion(remote,local){
-  const a=versionParts(remote), b=versionParts(local);
-  for(let i=0;i<Math.max(a.length,b.length);i++){
-    const x=a[i]||0,y=b[i]||0;
-    if(x>y) return true;
-    if(x<y) return false;
-  }
-  return false;
-}
-async function checkGuideVersion(){
-  if(!navigator.onLine) return;
-  try{
-    const r=await fetch('./version.json?ts='+Date.now(),{cache:'no-store'});
-    if(!r.ok) return;
-    const v=await r.json();
-    if(v && v.version && isNewerVersion(v.version,APP_VERSION)){
-      const b=document.getElementById('updateBanner');
-      const t=document.getElementById('updateText');
-      if(t) t.textContent=`Nowa wersja: ${v.version}${v.note?' — '+v.note:''}`;
-      if(b) b.classList.add('show');
-    }
-  }catch(e){}
-}
-async function applyUpdate(){
-  try{
-    if(swRegistration){
-      await swRegistration.update();
-      if(swRegistration.waiting){
-        swRegistration.waiting.postMessage({type:'SKIP_WAITING'});
-        return;
-      }
-    }
-  }catch(e){}
-  location.reload();
-}
-
-</script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
