@@ -1,6 +1,6 @@
-import { trip, decisionAlerts, routeProfiles } from './trip-data.js';
+import { trip, decisionAlerts, routeProfiles, hotels, guideExtras } from './trip-data.js';
 
-const APP_VERSION='0.9.0';
+const APP_VERSION='0.9.1';
 const $=s=>document.querySelector(s);
 let selectedIndex=0;
 let selectedView='today';
@@ -104,12 +104,28 @@ function alertHtml(d){
 function renderDayGrid(){
   $('#daygrid').innerHTML=trip.map((d,i)=>`<a class="daylink ${i===selectedIndex?'active':''}" data-day-index="${i}" data-app-view="day" href="${stateHref(i,'day')}"><b>${d.label}</b><span>${d.title}</span></a>`).join('');
 }
+function guideHtml(d){
+  const g=guideExtras[d.date];
+  if(!g) return '';
+  const hotel=g.hotel&&hotels[g.hotel] ? hotels[g.hotel] : null;
+  const list=(title,items)=>items&&items.length?`<div class="guide-block"><h3>${title}</h3><ul class="core">${items.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`:'';
+  const sources=g.sources&&g.sources.length?`<div class="row">${g.sources.map(s=>`<a class="btn" href="${s[1]}">↗ ${s[0]}</a>`).join('')}</div>`:'';
+  return `${hotel?`<section class="card"><div class="kicker">🏨 HOTEL BAZOWY • ${hotel.status}</div><h2>${hotel.name}</h2><div class="small"><b>${hotel.stay}</b> • ${hotel.address}<br><b>Śniadanie:</b> ${hotel.breakfast}<br><b>Transport:</b> ${hotel.transit}<br>${hotel.strategy}</div></section>`:''}
+  <section class="card"><div class="kicker">📖 PRZEWODNIK DNIA</div><h2>Co warto wiedzieć</h2><p class="small">${g.intro}</p>
+    ${list('💡 Ciekawostki',g.trivia)}
+    ${list('🎟 Aktualne wydarzenia / watchlist',g.events)}
+    ${list('🧠 Podpowiedzi',g.tips)}
+    ${list('🛍 Strategia zakupowa',g.shopping)}
+    ${sources}
+  </section>`;
+}
 function renderDayDetail(idx){
   const d=trip[idx],host=$('#dayDetail'); if(!d||!host) return;
   const foods=d.food.map(f=>`<div class="choice"><b>${f[0]} • ${f[1]}</b><div class="small">${f[2]}</div><div class="row"><a class="btn" href="${mapsUrl(f[3]||f[1],'walking')}">🚶 Maps</a></div></div>`).join('');
   const maps=d.maps.map(m=>`<a class="btn primary" href="${mapsUrl(m[1],m[2])}">🗺 ${m[0]}</a>`).join('');
   host.innerHTML=`<section class="hero"><div class="kicker">${d.label} • ${d.status}</div><h1>${d.title}</h1><div class="muted">${d.theme}</div><div class="status">${d.hard}</div></section>
   <section class="card"><div class="kicker">TERAZ</div><h2>${d.now}</h2><div class="small">Następnie: ${d.next}</div><div class="row">${maps}</div></section>
+  ${guideHtml(d)}
   ${operationalHtml(d)}
   <section class="card"><div class="kicker">CORE</div><ul class="core">${d.core.map(x=>'<li>'+x+'</li>').join('')}</ul></section>
   <section class="card"><div class="kicker">JEDZENIE A / B</div>${foods}</section>
