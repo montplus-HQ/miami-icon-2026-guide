@@ -2,25 +2,34 @@
 
 Mobilny przewodnik PWA dla podróży **9–20 grudnia 2026**: Miami + **Icon of the Seas**.
 
-**Current:** v0.8.8 — Royal excursion names/prices synchronized 2026-11-06.
+**Current:** v0.9.0 — modernization pass, 2026-11-06.
 
-- 🎭 Day 1: Headliner Showtime 19:15 — RESERVED.
-- ✨ Day 2: STARBURST 19:00, 50 min — RESERVED.
-- 🗿 Costa Maya: Chacchoben Mayan Ruins 08:30, 4 h — RESERVED; dziecko $0; 2 dorosłych = **$221.98** przy bieżącej cenie.
-- 🐒 Roatán: Accessible Chocolate Factory, Monkey & Sloth Park, and Scenic Tour — 08:00, 3 h — RESERVED; dziecko $0; 2 dorosłych = **$253.98**.
-- 🚌 Cozumel: Best of Cozumel: Scenic Open Top Bus, Mayan Heritage & Beach Escape — 09:30, 5 h — RESERVED; dziecko $0; 2 dorosłych = **$115.98**.
-- 💦 Day 6: AQUA ACTION! 19:45, 1 h — RESERVED.
-- 🌈 Day 7: The Wizard of Oz 19:00, 1 h 40 min — Royal Theater — RESERVED.
-- 🍽 Dining: aplikacja pokazuje Early 5:00 PM + waitlist Late (MY TIME).
-- 🏨 Hotele: finalny wybór nadal otwarty; obecne rezerwacje są zabezpieczeniem.
-- ✅ Pre-trip: hotel comparison; SHOREX order history/cancellation terms tylko przed ewentualną zmianą rezerwacji.
+## Co zmienia v0.9.0
 
-**Łączny bieżący benchmark SHOREX (2 płacących dorosłych, dziecko $0): $591.94.**
+- 📍 **Stateful navigation:** wybrany dzień i widok są zapisane w URL; Back/Forward i odświeżenie zachowują kontekst. Navigation API działa jako progressive enhancement z fallbackiem do History API.
+- ⚠️ **Plan B jako native bottom sheet:** otwiera się nad bieżącym widokiem, zachowuje kontekst dnia i oddziela „Decyzję teraz” od „Reguły dnia”.
+- ⚡ **Render-on-demand:** aplikacja renderuje jeden pełny dzień zamiast wszystkich 12 naraz; dodatkowo używa `content-visibility`.
+- ☀️ **Wake Lock:** opcjonalny przycisk w Trybie Dzisiaj może utrzymywać ekran aktywny podczas wykonywania planu.
+- 🎞️ **View Transitions:** subtelne przejścia na wspieranych przeglądarkach, z poszanowaniem `prefers-reduced-motion`.
+- 🔄 **PWA update hardening:** service worker używa `updateViaCache: "none"`, navigation preload i mocniejszego fallbacku offline.
+- 🧩 **Rozdzielona architektura bez frameworka:** `trip-data.js`, `app.js`, `styles.css`, cienki `index.html`.
+- 📲 **PWA shortcuts:** Dziś / LIVE / Plan B jako opcjonalne skróty launchera.
 
-**Uwaga:** ceny z Cruise Planner są bieżącymi cenami ofertowymi, nie automatycznie kwotą faktycznie zapłaconą za istniejącą rezerwację.
+## Architektura
 
-Repo jest publiczne — bez nazwisk, numerów rezerwacji, numeru kabiny, danych paszportowych i innych danych wrażliwych.
+- `index.html` — szkielet UI.
+- `styles.css` — wygląd i responsive/mobile ergonomics.
+- `trip-data.js` — publiczne dane operacyjne planu.
+- `app.js` — nawigacja, renderowanie, Plan B, Wake Lock, aktualizacje PWA.
+- `service-worker.js` — offline/cache/update.
+- `scripts/qa.py` — regresja struktury, tras, PWA i prywatności.
 
-## Plan B v0.8.8
+## Dane operacyjne
 
-Plan B jest zależny od wybranego dnia: synchronizuje się z Trybem Dzisiaj, rozdziela „Decyzję teraz” od „Reguły dnia”, zachowuje HARD constraint i daje bezpośredni powrót do bazy / pełnego planu dnia.
+- 🎭 Potwierdzone show i Royal SHOREX są odzwierciedlone w `trip-data.js`.
+- 🏨 Hotele pozostają odwoływalnym baseline; zmiana tylko przy wyraźnie lepszym bilansie ceny, lokalizacji, śniadania i transportu.
+- 🚇 Miami: publiczny transport i chodzenie jako baza; Uber Car Seat / transfer z fotelikiem jako fallback.
+
+## Prywatność
+
+Repo jest publiczne. Nie przechowuje nazwisk, numerów rezerwacji, numeru kabiny, danych paszportowych ani innych danych wrażliwych.
